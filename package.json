@@ -1,0 +1,34 @@
+{
+  "name": "ytalharabaci-website-astro",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "worker:dev": "wrangler dev",
+    "deploy": "astro build && wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/inter": "^5.2.5",
+    "@fortawesome/fontawesome-free": "^7.3.1",
+    "astro": "^7.4.1",
+    "marked": "^18.1.1",
+    "mermaid": "^12.2.0",
+    "parse5": "^8.0.1",
+    "shiki": "^4.5.0",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.11",
+    "@cloudflare/workers-types": "^5.20261019.1",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.151.2"
+  }
+}

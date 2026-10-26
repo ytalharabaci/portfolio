@@ -1,0 +1,43 @@
+---
+import type { Lang } from "../config/site";
+import { formatDate, getPostSlug, isWriteupEntry, type ContentEntry } from "../lib/content";
+
+interface Props {
+  entry: ContentEntry;
+  lang: Lang;
+  /** Heading level for the card title, so it fits the page outline. */
+  headingLevel?: 2 | 3;
+  /** Load the cover eagerly (first row of cards, likely above the fold). */
+  eager?: boolean;
+}
+
+const { entry, lang, headingLevel = 2, eager = false } = Astro.props;
+const section = isWriteupEntry(entry) ? "writeups" : "blog";
+const href = `/${lang}/${section}/${getPostSlug(entry)}/`;
+const Heading = `h${headingLevel}` as "h2" | "h3";
+---
+
+<article class="post-item blog-card" data-topic={entry.data.topic}>
+  <a class="post-link" href={href}>
+    <div class="blog-cover-wrap">
+      {entry.data.featuredImage ? (
+        <img
+          class="blog-cover"
+          src={entry.data.featuredImage}
+          alt=""
+          width="1200"
+          height="630"
+          loading={eager ? "eager" : "lazy"}
+          decoding="async"
+        />
+      ) : (
+        <div class="blog-cover blog-cover-placeholder" aria-hidden="true"></div>
+      )}
+    </div>
+    <div class="blog-card-body">
+      <time class="post-meta" datetime={entry.data.date}>{formatDate(entry.data.date, lang)}</time>
+      <Heading class="post-title">{entry.data.title}</Heading>
+      {entry.data.description && <p class="post-excerpt">{entry.data.description}</p>}
+    </div>
+  </a>
+</article>

@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="404: Page Not Found" lang="en" noindex>
+  <section class="not-found">
+    <p class="not-found-code" aria-hidden="true">404</p>
+    <h1 class="not-found-title">Page not found</h1>
+    <p class="not-found-text">
+      The page you are looking for might have been removed, renamed, or is temporarily unavailable.
+    </p>
+    <p class="not-found-text" lang="tr">
+      Aradığınız sayfa taşınmış, silinmiş veya geçici olarak kullanılamıyor olabilir.
+    </p>
+    <div class="not-found-actions">
+      <a href="/en/" class="button button-primary">English home</a>
+      <a href="/tr/" class="button" lang="tr" hreflang="tr">Türkçe ana sayfa</a>
+    </div>
+  </section>
+</BaseLayout>

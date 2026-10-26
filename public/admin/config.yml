@@ -1,0 +1,178 @@
+# Sveltia CMS configuration, served at https://ytalharabaci.dev/admin/
+# Docs: https://sveltiacms.app/en/docs
+#
+# Sign-in: GitHub OAuth (via the Cloudflare Worker auth endpoint) or fine-grained token.
+#
+# Content layout: content/<slug>/index.{tr,en}.md with the post's images in the same
+# folder. This is the `multiple_files` i18n structure, so each post is one entry with TR and EN
+# side by side, and every image belongs to the post whose folder it is in.
+
+backend:
+  name: github
+  repo: ytalharabaci/portfolio
+  branch: main
+  base_url: https://ytalharabaci.dev
+  auth_endpoint: auth
+  auth_methods: [oauth, token]
+  commit_messages:
+    create: "content: create {{path}}"
+    update: "content: update {{path}}"
+    delete: "content: delete {{path}}"
+    uploadMedia: "content: upload {{path}}"
+    deleteMedia: "content: delete {{path}}"
+
+site_url: https://ytalharabaci.dev
+display_url: https://ytalharabaci.dev
+
+# Required globally: images for the About and Projects pages, which cannot serve files from
+# content/. Posts keep their images next to the entry. Post folders are browsed on the Görseller
+# page (/admin/media/), where Sveltia's Media page now redirects.
+media_folder: public/images
+public_folder: /images
+
+media_libraries:
+  default:
+    config:
+      # Every uploaded raster image (JPEG, PNG, WebP, AVIF, HEIC…) is converted to WebP at quality
+      # 85 and scaled down to at most 1200 px wide before it is committed.
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1200
+  # Stock photo services would insert external URLs, which the site's CSP does not allow.
+  stock_assets: false
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+output:
+  # src/lib/content.ts rejects empty strings for optional fields such as featuredImageAlt.
+  omit_empty_optional_fields: true
+
+i18n:
+  structure: multiple_files
+  locales: [tr, en]
+  default_locale: tr
+
+collections:
+  - name: posts
+    label: Yazılar
+    label_singular: Yazı
+    description: Blog yazıları ve write-up'lar. Her yazı TR ve EN sürümüyle tek girdidir.
+    folder: content
+    path: "{{slug}}/index"
+    extension: md
+    format: frontmatter
+    i18n: true
+    create: true
+    # about/ and projects/ have no `type`, so they stay in the Sayfalar collection only.
+    filter: { field: type, value: [posts, writeups] }
+    media_folder: ""
+    public_folder: ""
+    slug:
+      editable: true
+      hint: "Klasör adı ve URL (ör. detection-engineering-as-code). Küçük harf, rakam ve tire."
+      pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Küçük harf, rakam ve tire kullanın."]
+    summary: "{{title}} · {{date}}{{draft | ternary(' · Taslak', '')}}"
+    thumbnail: image
+    # Live page: /tr/blog/<slug>/ or /en/writeups/<slug>/ (the /posts/ path redirects to /blog/).
+    preview_path: "{{locale}}/{{fields.type}}/{{slug}}/"
+    sortable_fields:
+      fields: [date, title]
+      default: { field: date, direction: descending }
+    view_groups:
+      - { label: Tür, field: type }
+      - { label: Konu, field: topic }
+    view_filters:
+      - { label: Blog, field: type, pattern: "^posts$" }
+      - { label: Write-up, field: type, pattern: "^writeups$" }
+      - { label: Taslaklar, field: draft, pattern: true }
+      - { label: Yayındakiler, field: draft, pattern: false }
+      - { label: Öne çıkanlar, field: featured, pattern: true }
+      - { label: "Tespit & Müdahale", field: topic, pattern: "^detection-response$" }
+      - { label: "AppSec & DevSecOps", field: topic, pattern: "^appsec-devsecops$" }
+      - { label: "Bulut & Altyapı", field: topic, pattern: "^cloud-infrastructure$" }
+      - { label: "Ağ & Uç Nokta", field: topic, pattern: "^network-endpoint$" }
+      - { label: "Ofansif Güvenlik", field: topic, pattern: "^offensive-security$" }
+    fields:
+      - name: title
+        label: Başlık
+        widget: string
+        i18n: true
+      - name: description
+        label: Açıklama
+        widget: text
+        i18n: true
+        hint: "Liste kartlarında, arama sonuçlarında ve paylaşım önizlemelerinde görünür. 150–160 karakter civarı idealdir."
+      - name: date
+        label: Yayın tarihi
+        widget: datetime
+        type: date
+        i18n: duplicate
+      - name: dateModified
+        label: Güncellenme tarihi
+        widget: datetime
+        type: date
+        required: false
+        i18n: true
+        hint: "Yazıyı önemli ölçüde güncellediğinizde doldurun."
+      - name: draft
+        label: Taslak
+        widget: boolean
+        default: true
+        i18n: true
+        hint: "Açıkken bu dildeki sürüm sitede yayınlanmaz."
+      - name: type
+        label: Tür
+        widget: select
+        default: posts
+        i18n: duplicate
+        hint: "Blog /blog/, Write-up /writeups/ altında yayınlanır."
+        options:
+          - { label: Blog, value: posts }
+          - { label: Write-up, value: writeups }
+      - name: topic
+        label: Konu
+        widget: select
+        i18n: duplicate
+        hint: "Blog ve write-up listelerindeki konu filtresi."
+        options:
+          - { label: Tespit & Müdahale (Detection & Response), value: detection-response }
+          - { label: AppSec & DevSecOps, value: appsec-devsecops }
+          - { label: Bulut & Altyapı (Cloud & Infrastructure), value: cloud-infrastructure }
+          - { label: Ağ & Uç Nokta (Network & Endpoint), value: network-endpoint }
+          - { label: Ofansif Güvenlik (Offensive Security), value: offensive-security }
+      - name: tags
+        label: Etiketler
+        widget: list
+        required: false
+        i18n: true
+      - name: featured
+        label: Ana sayfada öne çıkar
+        widget: boolean
+        required: false
+        default: false
+        i18n: duplicate
+        hint: "Ana sayfa öne çıkan yazıların en yeni 3 tanesini gösterir."
+      - name: image
+        label: Kapak görseli
+        # Custom field from public/admin/cover-image.js: crop dialog, 1200 × 630, saved as featured.webp.
+        widget: cover-image
+        required: false
+        i18n: duplicate
+        hint: "Seçtiğiniz görsel kırpma penceresinde 1200 × 630 kapak boyutuna kırpılır ve featured.webp olarak kaydedilir."
+      - name: featuredImageAlt
+        label: Kapak görseli açıklaması
+        widget: string
+        required: false
+        i18n: true
+        hint: "Ekran okuyucular ve paylaşım kartları için kısa açıklama."
+      - name: body
+        label: İçerik
+        widget: richtext
+        i18n: true
+        modes: [rich_text, raw]
+
+

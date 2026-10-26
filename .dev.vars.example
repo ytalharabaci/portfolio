@@ -1,0 +1,6 @@
+# GitHub OAuth App credentials for Sveltia CMS login
+# Create at https://github.com/settings/developers -> OAuth Apps
+# Authorization callback URL: https://ytalharabaci.dev/callback (or http://localhost:8787/callback for local dev)
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+

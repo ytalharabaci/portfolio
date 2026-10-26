@@ -1,0 +1,140 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import { SITE, EMAILS } from "../config/site";
+
+const title = `${SITE.author} | ${SITE.title}`;
+const seoDescription = `${SITE.author} — Security Engineer specializing in detection & response, infrastructure defense, and security automation.`;
+---
+
+<BaseLayout
+  title={title}
+  lang="en"
+  description={seoDescription}
+  image="/link-card.jpg"
+  imageAlt="Yusuf Talha ARABACI - Security Engineer"
+>
+  <main class="landing-portal">
+    <div class="landing-card-wrapper">
+      <img
+        src="/link-card.jpg"
+        alt="Yusuf Talha ARABACI - Security Engineer"
+        class="landing-banner"
+        width="1200"
+        height="630"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+
+    <div class="landing-content">
+      <h1 class="landing-title">{SITE.author}</h1>
+      <p class="landing-subtitle">
+        {SITE.description.en}
+      </p>
+
+      <div class="landing-actions" data-nosnippet>
+        <a class="button button-primary" href="/en/">
+          English Version <Icon name="arrow-right" />
+        </a>
+        <a class="button" href="/tr/">
+          Türkçe Sürüm <Icon name="arrow-right" />
+        </a>
+      </div>
+
+      <ul class="social-list" data-nosnippet>
+        {SITE.socials.map((social) => {
+          const href = social.name === "Email" ? `mailto:${EMAILS.en}` : social.url;
+          return (
+            <li>
+              <a
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                title={social.name}
+              >
+                <Icon set={social.icon.set} name={social.icon.name} />
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .landing-portal {
+    max-width: 860px;
+    margin: 1.5rem auto 4rem;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .landing-card-wrapper {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-color);
+    background: #0f172a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .landing-card-wrapper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 55px -10px rgba(0, 0, 0, 0.45);
+  }
+
+  .landing-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1200 / 630;
+    object-fit: cover;
+  }
+
+  .landing-content {
+    margin-top: 2rem;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .landing-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+  }
+
+  .landing-subtitle {
+    color: var(--app-text-dim);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+
+  .landing-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .landing-actions .button {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+</style>

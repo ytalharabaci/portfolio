@@ -1,0 +1,38 @@
+---
+import Icon from "./Icon.astro";
+import type { Lang } from "../config/site";
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+  lang: Lang;
+  /** Heading level for the card title, so it fits the page outline. */
+  headingLevel?: 2 | 3;
+}
+
+const { project, lang, headingLevel = 2 } = Astro.props;
+const name = project.name[lang];
+const Heading = `h${headingLevel}` as "h2" | "h3";
+const t = lang === "tr" ? { repo: "GitHub deposu", demo: "Canlı demo" } : { repo: "GitHub repository", demo: "Live demo" };
+---
+
+<article class="project-card">
+  <div class="project-top">
+    <span class="project-icon" aria-hidden="true"><Icon name={project.icon} /></span>
+    <div class="project-links">
+      <a href={project.repo} target="_blank" rel="noopener noreferrer" aria-label={`${name} — ${t.repo}`}>
+        <Icon set="brands" name="github" />
+      </a>
+      {project.demo && (
+        <a href={project.demo} target="_blank" rel="noopener noreferrer" aria-label={`${name} — ${t.demo}`}>
+          <Icon name="link" />
+        </a>
+      )}
+    </div>
+  </div>
+  <Heading class="project-title">{name}</Heading>
+  <p class="project-desc">{project.description[lang]}</p>
+  <ul class="project-tags" aria-label="Technologies">
+    {project.tags.map((tag) => <li>{tag}</li>)}
+  </ul>
+</article>

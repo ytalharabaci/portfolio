@@ -1,0 +1,184 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type { Lang } from "../config/site";
+import {
+  buildToc,
+  formatDate,
+  getEntryBucket,
+  readingMinutes,
+  renderMarkdown,
+  type ContentEntry,
+} from "../lib/content";
+
+interface Props {
+  entry: ContentEntry;
+  lang: Lang;
+  /** 2 = H2 sections only, 3 = H2 sections with nested H3 entries. */
+  tocDepth?: 2 | 3;
+}
+
+const { entry, lang, tocDepth = 2 } = Astro.props;
+const { data } = entry;
+const rendered = renderMarkdown(entry.body, { bucket: getEntryBucket(entry), lang });
+const { html, toc } = buildToc(rendered, tocDepth);
+const hasToc = toc.length > 0;
+const minutes = readingMinutes(entry.body);
+const coverAlt = data.featuredImageAlt ?? data.title;
+const t = lang === "tr"
+  ? { toc: "Bölüm Menüsü", read: `${minutes} dk okuma`, updated: "Güncellendi" }
+  : { toc: "On this page", read: `${minutes} min read`, updated: "Updated" };
+---
+
+<BaseLayout
+  title={data.title}
+  lang={lang}
+  description={data.description}
+  image={data.featuredImage}
+  imageAlt={coverAlt}
+  pageType="article"
+  datePublished={data.date}
+  dateModified={data.dateModified}
+  tags={data.tags}
+>
+  <div class:list={["article-shell", { "no-toc": !hasToc }]}>
+    {hasToc && (
+      <aside class="article-toc" data-toc>
+        <button
+          type="button"
+          class="toc-header btn-reset"
+          data-toc-toggle
+          aria-expanded="false"
+          aria-controls="toc-list"
+        >
+          {t.toc}
+        </button>
+
+        <nav class="toc-dropdown" id="toc-list" data-toc-dropdown aria-label={t.toc}>
+          {toc.map((group) => (
+            <div class="toc-group" data-group-id={group.id}>
+              <a class="toc-link" href={`#${group.id}`} data-toc-link data-heading-id={group.id}>
+                {group.text}
+              </a>
+              {group.children.length > 0 && (
+                <div class="toc-children">
+                  {group.children.map((child) => (
+                    <a
+                      class="toc-link toc-link-sub"
+                      href={`#${child.id}`}
+                      data-toc-link
+                      data-heading-id={child.id}
+                      data-parent-id={group.id}
+                    >
+                      {child.text}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </nav>
+      </aside>
+    )}
+
+    <article class="markdown-content">
+      <header class="article-header">
+        <h1 class="title">{data.title}</h1>
+        <p class="article-meta">
+          <time datetime={data.date}>{formatDate(data.date, lang)}</time>
+          {data.dateModified && data.dateModified !== data.date && (
+            <span> · {t.updated} <time datetime={data.dateModified}>{formatDate(data.dateModified, lang)}</time></span>
+          )}
+          <span> · {t.read}</span>
+        </p>
+      </header>
+
+      {data.featuredImage && (
+        <img
+          class="article-cover"
+          src={data.featuredImage}
+          alt={coverAlt}
+          width="1200"
+          height="630"
+          fetchpriority="high"
+          decoding="async"
+        />
+      )}
+
+      <Fragment set:html={html} />
+    </article>
+  </div>
+</BaseLayout>
+
+<script>
+  // Table of contents: highlights the current section and collapses into a dropdown on narrow screens.
+  const toc = document.querySelector<HTMLElement>("[data-toc]");
+  if (toc) {
+    const toggle = toc.querySelector<HTMLElement>("[data-toc-toggle]");
+    const dropdown = toc.querySelector<HTMLElement>("[data-toc-dropdown]");
+    const groups = Array.from(toc.querySelectorAll<HTMLElement>(".toc-group"));
+    const links = Array.from(toc.querySelectorAll<HTMLElement>("[data-toc-link]"));
+    const compact = window.matchMedia("(max-width: 1024px)");
+
+    const setOpen = (open: boolean) => {
+      dropdown?.classList.toggle("is-open", open);
+      toggle?.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+
+    const activate = (headingId: string | undefined) => {
+      let active: HTMLElement | null = null;
+      links.forEach((link) => {
+        const isActive = link.dataset.headingId === headingId;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) active = link;
+      });
+      if (!active) return;
+      const current: HTMLElement = active;
+      const groupId = current.dataset.parentId || current.dataset.headingId;
+      groups.forEach((group) => group.classList.toggle("is-open", group.dataset.groupId === groupId));
+      // Keep the active entry visible inside the sticky sidebar without scrolling the page.
+      if (!compact.matches) {
+        const top = current.offsetTop;
+        if (top < toc.scrollTop || top > toc.scrollTop + toc.clientHeight - 40) {
+          toc.scrollTop = top - toc.clientHeight / 2;
+        }
+      }
+    };
+
+    const headings = links
+      .map((link) => document.getElementById(link.dataset.headingId || ""))
+      .filter((heading): heading is HTMLElement => Boolean(heading));
+
+    const update = () => {
+      let current = headings[0];
+      for (const heading of headings) {
+        if (heading.getBoundingClientRect().top <= 140) current = heading;
+        else break;
+      }
+      if (current) activate(current.id);
+    };
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        activate(link.dataset.headingId);
+        if (compact.matches) setOpen(false);
+      });
+    });
+
+    // The list is always visible in the desktop sidebar; it only collapses on narrow screens.
+    if (!compact.matches) toggle?.setAttribute("aria-expanded", "true");
+    toggle?.addEventListener("click", () => {
+      if (compact.matches) setOpen(!dropdown?.classList.contains("is-open"));
+    });
+
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        update();
+        ticking = false;
+      });
+    }, { passive: true });
+    update();
+  }
+</script>

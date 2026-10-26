@@ -1,0 +1,17 @@
+---
+import ArticlePage from "../../../components/ArticlePage.astro";
+import { LANGS, type Lang } from "../../../config/site";
+import { getEntriesByLang, getPostSlug, isWriteupEntry, type ContentEntry } from "../../../lib/content";
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    getEntriesByLang(lang)
+      .filter(isWriteupEntry)
+      .map((writeup) => ({ params: { lang, slug: getPostSlug(writeup) }, props: { lang, writeup } })),
+  );
+}
+
+const { writeup, lang } = Astro.props as { writeup: ContentEntry; lang: Lang };
+---
+
+<ArticlePage entry={writeup} lang={lang} tocDepth={3} />

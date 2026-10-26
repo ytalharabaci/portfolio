@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <!-- Served as-is from public/; talks only to the GitHub API with the CMS sign-in token. -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; connect-src 'self' blob: https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <title>Görseller | ytalharabaci.dev</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/admin/media/media.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="back" href="/admin/#/collections/posts" title="Yazılara dön">← Yazılar</a>
+      <nav class="crumbs" aria-label="Konum"></nav>
+      <input class="search" type="search" placeholder="Yazı ara…" aria-label="Yazı ara" />
+    </header>
+    <div class="status" role="status" aria-live="polite"></div>
+    <main class="view"></main>
+    <script src="/admin/crop.js"></script>
+    <script src="/admin/media/media.js"></script>
+  </body>
+</html>

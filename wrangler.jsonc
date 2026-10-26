@@ -1,0 +1,36 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ytalharabaci-website",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-18",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "force-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": [
+      "/",
+      "/sitemap.xml",
+      "/auth",
+      "/callback",
+      "/oauth/*",
+      "/api/*",
+      "/admin/config.yml"
+    ]
+  },
+  "vars": {
+    "ALLOWED_DOMAINS": "ytalharabaci.dev,*.ytalharabaci.dev,localhost,127.0.0.1,*.workers.dev"
+  },
+  "routes": [
+    {
+      "pattern": "ytalharabaci.dev",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.ytalharabaci.dev",
+      "custom_domain": true
+    }
+  ]
+}
+

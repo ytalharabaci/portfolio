@@ -1,0 +1,184 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+import PostCard from "../../components/PostCard.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { EMAILS, LANGS, SITE, type Lang } from "../../config/site";
+import { PROJECTS } from "../../data/projects";
+import { getEntriesByLang, isPostEntry, isWriteupEntry, resolveAssetPath, sortByDateDesc } from "../../lib/content";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const entries = sortByDateDesc(getEntriesByLang(lang));
+const posts = entries.filter(isPostEntry);
+const featuredPosts = posts.filter((post) => post.data.featured).slice(0, 3);
+const recentPosts = posts.filter((post) => !post.data.featured).slice(0, 3);
+const latestWriteups = entries.filter(isWriteupEntry).slice(0, 3);
+const featuredProjects = PROJECTS.filter((project) => project.featured);
+const books = PROJECTS.filter((project) => project.category === "books");
+const pageTitle = `${SITE.author} | ${SITE.title}`;
+const availability = SITE.availability?.[lang];
+const seoDescription = lang === "tr"
+  ? `${SITE.author} — Tehdit tespiti, olay müdahalesi ve altyapı güvenliği üzerine çalışan Güvenlik Mühendisi.`
+  : `${SITE.author} — Security Engineer specializing in detection & response, infrastructure defense, and security automation.`;
+const t = lang === "tr"
+  ? {
+      contact: "İletişime geç",
+      about: "Hakkımda",
+      projects: "Öne Çıkan Projeler",
+      allProjects: "Tüm projeler →",
+      books: "Açık Kaynak Web Kitapları",
+      featured: "Öne Çıkan Yazılar",
+      recent: "Son Yazılar",
+      allPosts: "Tüm yazılar →",
+      writeups: "Son Write-up'lar",
+      allWriteups: "Tüm write-up'lar →",
+    }
+  : {
+      contact: "Get in touch",
+      about: "About me",
+      projects: "Featured Projects",
+      allProjects: "All projects →",
+      books: "Open-Source Web Books",
+      featured: "Featured Writing",
+      recent: "Recent Posts",
+      allPosts: "All posts →",
+      writeups: "Latest Write-ups",
+      allWriteups: "All write-ups →",
+    };
+---
+
+<BaseLayout title={pageTitle} lang={lang} description={seoDescription} pageType="profile">
+  <section class="hero-section">
+    <div class="hero-grid">
+      <div class="hero-content">
+        {availability && (
+          <div class="availability-pill" role="status" data-nosnippet>
+            <span class="status-pulse" aria-hidden="true">
+              <span class="status-ping"></span>
+              <span class="status-core"></span>
+            </span>
+            <span class="availability-text">{availability}</span>
+          </div>
+        )}
+        <h1 class="hero-name">{SITE.author}</h1>
+        <div class="hero-role-line">
+          <span class="prompt-symbol" aria-hidden="true">&gt;</span>
+          <span class="role-title">Security Engineer</span>
+          <span class="role-separator" aria-hidden="true">/</span>
+          <div class="rotating-terms-container" data-nosnippet>
+            <span class="rotating-term" id="rotating-term" data-terms={JSON.stringify(SITE.domains)}>{SITE.domains[0]}</span>
+          </div>
+        </div>
+        <p class="hero-summary">
+          {SITE.description[lang]}
+        </p>
+        <div class="hero-actions" data-nosnippet>
+          <a class="button button-primary" href={`mailto:${EMAILS[lang]}`}><Icon name="envelope" />{t.contact}</a>
+          <a class="button" href={`/${lang}/about/`}><Icon name="user" />{t.about}</a>
+        </div>
+        <ul class="social-list" data-nosnippet>
+          {SITE.socials.map((social) => {
+            const href = social.name === "Email" ? `mailto:${EMAILS[lang]}` : social.url;
+            return (
+              <li>
+                <a
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  title={social.name}
+                >
+                  <Icon set={social.icon.set} name={social.icon.name} />
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <img
+            src={resolveAssetPath("/link-card.jpg")}
+            alt={`${SITE.author} — Security Engineer`}
+            width="600"
+            height="315"
+            class="hero-card-img"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="featured-projects">
+    <h2 class="section-title" id="featured-projects">{t.projects}</h2>
+    <div class="projects-grid">
+      {featuredProjects.map((project) => <ProjectCard project={project} lang={lang} headingLevel={3} />)}
+    </div>
+    <p class="section-more"><a href={`/${lang}/projects/`}>{t.allProjects}</a></p>
+  </section>
+
+  {books.length > 0 && (
+    <section aria-labelledby="web-books">
+      <h2 class="section-title" id="web-books">{t.books}</h2>
+      <div class="projects-grid">
+        {books.map((project) => <ProjectCard project={project} lang={lang} headingLevel={3} />)}
+      </div>
+    </section>
+  )}
+
+  {featuredPosts.length > 0 && (
+    <section aria-labelledby="featured-posts">
+      <h2 class="section-title" id="featured-posts">{t.featured}</h2>
+      <div class="posts-list-grid">
+        {featuredPosts.map((post) => <PostCard entry={post} lang={lang} headingLevel={3} />)}
+      </div>
+    </section>
+  )}
+
+  <section aria-labelledby="latest-writeups">
+    <h2 class="section-title" id="latest-writeups">{t.writeups}</h2>
+    <div class="posts-list-grid">
+      {latestWriteups.map((entry) => <PostCard entry={entry} lang={lang} headingLevel={3} />)}
+    </div>
+    <p class="section-more"><a href={`/${lang}/writeups/`}>{t.allWriteups}</a></p>
+  </section>
+
+  <section aria-labelledby="recent-posts">
+    <h2 class="section-title" id="recent-posts">{t.recent}</h2>
+    <div class="posts-list-grid">
+      {recentPosts.map((post) => <PostCard entry={post} lang={lang} headingLevel={3} />)}
+    </div>
+    <p class="section-more"><a href={`/${lang}/blog/`}>{t.allPosts}</a></p>
+  </section>
+</BaseLayout>
+
+<script>
+  // Cycles the focus areas under the role; reduced-motion visitors keep the first one.
+  const termEl = document.getElementById("rotating-term");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (termEl && !reduceMotion) {
+    const terms: string[] = JSON.parse(termEl.dataset.terms ?? "[]");
+    let currentIndex = 0;
+
+    setInterval(() => {
+      if (document.hidden) return;
+      termEl.classList.add("fade-out");
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % terms.length;
+        termEl.textContent = terms[currentIndex];
+        termEl.classList.remove("fade-out");
+        termEl.classList.add("fade-in-start");
+        void termEl.offsetWidth; // apply the start position before transitioning in
+        termEl.classList.remove("fade-in-start");
+      }, 400);
+    }, 2800);
+  }
+</script>

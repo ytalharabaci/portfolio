@@ -1,0 +1,16 @@
+---
+// Legacy /posts/ URLs moved to /blog/.
+import { LANGS, type Lang } from "../../../config/site";
+import { getEntriesByLang, getPostSlug, isPostEntry } from "../../../lib/content";
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    getEntriesByLang(lang)
+      .filter(isPostEntry)
+      .map((post) => ({ params: { lang, slug: getPostSlug(post) } })),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+return Astro.redirect(`/${lang}/blog/${Astro.params.slug}/`, 301);
+---

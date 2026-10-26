@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <!--
+      Served as-is from public/, so Astro's page CSP does not apply here.
+      Directives follow the Sveltia CMS CSP guide for the GitHub backend.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' blob: data: https://*.githubusercontent.com; media-src blob:; frame-src blob:; connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://www.githubstatus.com; manifest-src blob:; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <title>Content Manager | ytalharabaci.dev</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body>
+    <!--
+      Pinned version with Subresource Integrity. To upgrade, change the version and recompute the hash:
+      curl -sL https://unpkg.com/@sveltia/cms@<version>/dist/sveltia-cms.js | openssl dgst -sha384 -binary | openssl base64 -A
+    -->
+    <script
+      src="https://unpkg.com/@sveltia/cms@0.246.1/dist/sveltia-cms.js"
+      integrity="sha384-MesywyNCDYtPV/xerXlPq0YXvMWNmWdmHGo1FQ7TotJtZ6QSLe7Nd2quNAdpni4j"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Shared 1200 × 630 crop dialog, the `cover-image` field that uses it, and the redirect from
+         Sveltia's Media page to the Görseller page (/admin/media/), which shows post folders. -->
+    <script src="/admin/crop.js"></script>
+    <script src="/admin/cover-image.js"></script>
+    <script src="/admin/media-link.js"></script>
+    <script src="/admin/editor-components.js"></script>
+    <script src="/admin/deploy-status.js"></script>
+    <script src="/admin/seo-helper.js"></script>
+  </body>
+</html>

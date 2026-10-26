@@ -1,0 +1,51 @@
+---
+import { TOPICS, type Lang, type Topic } from "../config/site";
+import type { ContentEntry } from "../lib/content";
+
+interface Props {
+  entries: ContentEntry[];
+  lang: Lang;
+}
+
+const { entries, lang } = Astro.props;
+// Only offer topics that have at least one entry in this list, in the TOPICS order.
+const present = new Set(entries.map((entry) => entry.data.topic).filter(Boolean));
+const topics = (Object.keys(TOPICS) as Topic[]).filter((topic) => present.has(topic));
+const t = lang === "tr" ? { all: "Tümü", label: "Konuya göre filtrele" } : { all: "All", label: "Filter by topic" };
+---
+
+{topics.length > 1 && (
+  <div class="topic-filter" role="group" aria-label={t.label} data-topic-filter>
+    <button type="button" class="topic-chip" data-topic="" aria-pressed="true">{t.all}</button>
+    {topics.map((topic) => (
+      <button type="button" class="topic-chip" data-topic={topic} aria-pressed="false">{TOPICS[topic][lang]}</button>
+    ))}
+  </div>
+)}
+
+<script>
+  // Filters the sibling card grid client-side; without JS the filter is hidden and every card shows.
+  document.querySelectorAll<HTMLElement>("[data-topic-filter]").forEach((filter) => {
+    const chips = Array.from(filter.querySelectorAll<HTMLButtonElement>(".topic-chip"));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>(".posts-list-grid .post-item"));
+    const known = new Set(chips.map((chip) => chip.dataset.topic));
+
+    const apply = (topic: string, updateUrl: boolean) => {
+      chips.forEach((chip) => chip.setAttribute("aria-pressed", chip.dataset.topic === topic ? "true" : "false"));
+      cards.forEach((card) => {
+        card.hidden = topic !== "" && card.dataset.topic !== topic;
+      });
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (topic) url.searchParams.set("topic", topic);
+        else url.searchParams.delete("topic");
+        history.replaceState(null, "", url);
+      }
+    };
+
+    chips.forEach((chip) => chip.addEventListener("click", () => apply(chip.dataset.topic ?? "", true)));
+
+    const initial = new URL(window.location.href).searchParams.get("topic") ?? "";
+    if (initial && known.has(initial)) apply(initial, false);
+  });
+</script>

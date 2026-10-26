@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+import { EMAILS, LANGS, SITE, type Lang } from "../../config/site";
+import { getStaticPage, renderMarkdown } from "../../lib/content";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+
+const aboutPage = getStaticPage(lang, "about");
+const html = renderMarkdown(aboutPage?.body ?? "", { bucket: "about", lang });
+const title = aboutPage?.title ?? (lang === "tr" ? "Hakkımda" : "About");
+const availability = SITE.availability?.[lang];
+const contactLabel = lang === "tr" ? "İletişime geç" : "Get in touch";
+---
+
+<BaseLayout title={title} lang={lang} description={aboutPage?.description} pageType="profile">
+  <article class="markdown-content">
+    <h1 class="title">{title}</h1>
+    {availability && (
+      <div class="about-status">
+        <p class="availability"><span class="availability-dot" aria-hidden="true"></span>{availability}</p>
+        <a class="button button-primary" href={`mailto:${EMAILS[lang]}`}><Icon name="envelope" />{contactLabel}</a>
+      </div>
+    )}
+    {aboutPage ? (
+      <Fragment set:html={html} />
+    ) : (
+      <p>{lang === "tr" ? "İçerik yakında eklenecek." : "Content will be added soon."}</p>
+    )}
+  </article>
+</BaseLayout>

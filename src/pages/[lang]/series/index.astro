@@ -1,0 +1,11 @@
+---
+// Series pages were retired; their posts live in the blog index.
+import { LANGS, type Lang } from "../../../config/site";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+return Astro.redirect(`/${lang}/blog/`, 301);
+---

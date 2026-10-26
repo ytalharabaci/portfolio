@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostCard from "../../../components/PostCard.astro";
+import TopicFilter from "../../../components/TopicFilter.astro";
+import { LANGS, type Lang } from "../../../config/site";
+import { getEntriesByLang, isWriteupEntry, sortByDateDesc } from "../../../lib/content";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const writeups = sortByDateDesc(getEntriesByLang(lang).filter(isWriteupEntry));
+const title = lang === "tr" ? "Write-up" : "Write-ups";
+const description = lang === "tr"
+  ? "LetsDefend ve PyGoat gibi platformlardaki tehdit avcılığı ve uygulama güvenliği çözümleri."
+  : "Threat hunting and application security walkthroughs from platforms such as LetsDefend and PyGoat.";
+---
+
+<BaseLayout title={title} lang={lang} description={description}>
+  <header class="page-header">
+    <h1 class="title">{title}</h1>
+  </header>
+
+  <TopicFilter entries={writeups} lang={lang} />
+
+  <div class="posts-list-grid">
+    {writeups.map((entry, index) => <PostCard entry={entry} lang={lang} eager={index < 3} />)}
+  </div>
+</BaseLayout>

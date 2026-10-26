@@ -1,0 +1,14 @@
+---
+import { iconSvg, type IconSet } from "../lib/icons";
+
+interface Props {
+  name: string;
+  set?: IconSet;
+  class?: string;
+}
+
+const { name, set = "solid", class: className = "icon" } = Astro.props;
+const svg = iconSvg(set, name, className);
+---
+
+<Fragment set:html={svg} />

@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostCard from "../../../components/PostCard.astro";
+import TopicFilter from "../../../components/TopicFilter.astro";
+import { LANGS, type Lang } from "../../../config/site";
+import { getEntriesByLang, isPostEntry, sortByDateDesc } from "../../../lib/content";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const posts = sortByDateDesc(getEntriesByLang(lang).filter(isPostEntry));
+const description = lang === "tr"
+  ? "Güvenlik mühendisliği, altyapı ve açık kaynak üzerine teknik yazılar."
+  : "Technical articles on security engineering, infrastructure and open source.";
+---
+
+<BaseLayout title="Blog" lang={lang} description={description}>
+  <header class="page-header">
+    <h1 class="title">Blog</h1>
+  </header>
+
+  <TopicFilter entries={posts} lang={lang} />
+
+  <div class="posts-list-grid">
+    {posts.map((post, index) => <PostCard entry={post} lang={lang} eager={index < 3} />)}
+  </div>
+</BaseLayout>

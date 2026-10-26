@@ -1,0 +1,487 @@
+---
+import "@fontsource-variable/inter";
+import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+import "../styles/base.css";
+import Icon from "../components/Icon.astro";
+import type { Lang } from "../config/site";
+import { DEFAULT_LANG, EMAILS, MENU, SITE } from "../config/site";
+import { resolveAssetPath } from "../lib/content";
+import { inlineScript } from "../lib/csp";
+
+interface Props {
+  title: string;
+  lang: Lang;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  pageType?: "website" | "article" | "profile";
+  datePublished?: string;
+  dateModified?: string;
+  tags?: string[];
+  /** Keeps the page out of search results and skips canonical/hreflang links (e.g. the 404 page). */
+  noindex?: boolean;
+}
+
+const {
+  title,
+  lang,
+  description,
+  image,
+  imageAlt,
+  pageType = "website",
+  datePublished,
+  dateModified,
+  tags = [],
+  noindex = false,
+} = Astro.props;
+const oppositeLang: Lang = lang === "tr" ? "en" : "tr";
+const pathname = Astro.url.pathname;
+const hasLangPrefix = /^\/(tr|en)(?=\/|$)/.test(pathname);
+const switchedPath = hasLangPrefix ? pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`) : `/${oppositeLang}/`;
+const rawDescription = SITE.description[lang] ?? SITE.description.en;
+const defaultDescription = rawDescription.startsWith(SITE.author)
+  ? rawDescription
+  : `${SITE.author} — ${rawDescription}`;
+const pageDescription = description ?? defaultDescription;
+const siteUrl = SITE.url;
+const canonicalUrl = new URL(resolveAssetPath(pathname), siteUrl).toString();
+const trPath = hasLangPrefix ? pathname.replace(/^\/(tr|en)(?=\/|$)/, "/tr") : "/tr/";
+const enPath = hasLangPrefix ? pathname.replace(/^\/(tr|en)(?=\/|$)/, "/en") : "/en/";
+const trUrl = new URL(resolveAssetPath(trPath), siteUrl).toString();
+const enUrl = new URL(resolveAssetPath(enPath), siteUrl).toString();
+const ogImagePath = image ?? SITE.ogDefault;
+const ogImageUrl = /^(https?:)?\/\//.test(ogImagePath)
+  ? ogImagePath
+  : new URL(
+      (import.meta.env.BASE_URL && ogImagePath.startsWith(import.meta.env.BASE_URL)) ? ogImagePath : resolveAssetPath(ogImagePath),
+      siteUrl
+    ).toString();
+const sitemapUrl = new URL(resolveAssetPath("/sitemap-index.xml"), siteUrl).toString();
+const rssUrl = new URL(resolveAssetPath(`/${lang}/rss.xml`), siteUrl).toString();
+const xDefaultUrl = new URL(resolveAssetPath(`/${DEFAULT_LANG}/`), siteUrl).toString();
+const ogLocale = lang === "tr" ? "tr_TR" : "en_US";
+const ogLocaleAlt = lang === "tr" ? "en_US" : "tr_TR";
+const ogImageAlt = imageAlt ?? (image ? title : `${SITE.author} — Security Engineer`);
+// Browser tabs and search results get the site name; og/twitter titles stay unsuffixed.
+const documentTitle = title.includes(SITE.title) ? title : `${title} | ${SITE.title}`;
+const sameAs = SITE.socials.filter((social) => social.url.startsWith("https://")).map((social) => social.url);
+const personId = `${siteUrl}/#person`;
+const isActive = (href: string) => pathname.startsWith(href);
+const t = lang === "tr"
+  ? { skip: "İçeriğe geç", menu: "Menüyü aç/kapat", theme: "Temayı değiştir", lang: "Switch to English", home: "Ana sayfa", copy: "Kodu kopyala", copied: "Kopyalandı" }
+  : { skip: "Skip to content", menu: "Toggle menu", theme: "Toggle theme", lang: "Türkçeye geç", home: "Home", copy: "Copy code", copied: "Copied" };
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: SITE.author,
+      url: siteUrl,
+      image: new URL(SITE.ogImage, siteUrl).toString(),
+      sameAs,
+      jobTitle: "Security Engineer",
+      email: `mailto:${EMAILS[lang] ?? EMAILS[DEFAULT_LANG]}`,
+      knowsAbout: SITE.domains,
+      knowsLanguage: ["tr", "en"],
+      alumniOf: [
+        { "@type": "CollegeOrUniversity", name: "Bursa Technical University" },
+        { "@type": "CollegeOrUniversity", name: "Karabük University" },
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: SITE.title,
+      description: defaultDescription,
+      inLanguage: ["tr", "en"],
+      publisher: { "@id": personId },
+    },
+    pageType === "article"
+      ? {
+          "@type": "BlogPosting",
+          "@id": `${canonicalUrl}#article`,
+          url: canonicalUrl,
+          headline: title,
+          description: pageDescription,
+          image: ogImageUrl,
+          datePublished,
+          dateModified: dateModified ?? datePublished,
+          inLanguage: lang,
+          keywords: tags.join(", "),
+          author: { "@id": personId },
+          publisher: { "@id": personId },
+          mainEntityOfPage: canonicalUrl,
+        }
+      : pageType === "profile"
+        ? {
+            "@type": "ProfilePage",
+            "@id": `${canonicalUrl}#profile`,
+            url: canonicalUrl,
+            name: title,
+            description: pageDescription,
+            inLanguage: lang,
+            mainEntity: { "@id": personId },
+          }
+        : {
+            "@type": "WebPage",
+            "@id": `${canonicalUrl}#webpage`,
+            url: canonicalUrl,
+            name: title,
+            description: pageDescription,
+            inLanguage: lang,
+            isPartOf: { "@id": `${siteUrl}/#website` },
+          },
+  ],
+};
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, "\\u003c");
+
+// Render-blocking scripts that must run before first paint; their hashes are added to the page CSP.
+const noJsScript = inlineScript(Astro, `document.documentElement.classList.replace("no-js", "js");`);
+// Applies the saved or system theme before first paint so dark-mode visitors never see a white flash.
+const themeScript = inlineScript(Astro, `(() => {
+  let theme = null;
+  try { theme = localStorage.getItem("colorscheme"); } catch {}
+  if (theme !== "light" && theme !== "dark") {
+    theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  document.body.className = "colorscheme-" + theme;
+  document.documentElement.style.colorScheme = theme;
+})();`);
+---
+
+<!doctype html>
+<html lang={lang} class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline set:html={noJsScript} />
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content={SITE.author} />
+    <meta name="robots" content={noindex ? "noindex,follow" : "index,follow"} />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+
+    <title>{documentTitle}</title>
+    <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
+    {!noindex && (
+      <>
+        <link rel="canonical" href={canonicalUrl} />
+        <link rel="alternate" href={trUrl} hreflang="tr" />
+        <link rel="alternate" href={enUrl} hreflang="en" />
+        <link rel="alternate" href={xDefaultUrl} hreflang="x-default" />
+      </>
+    )}
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.title} RSS`} href={rssUrl} />
+    <link rel="icon" type="image/svg+xml" href={resolveAssetPath("/favicon.svg")} />
+    <link rel="icon" type="image/png" sizes="48x48" href={resolveAssetPath("/favicon.png")} />
+    <link rel="apple-touch-icon" sizes="180x180" href={resolveAssetPath("/apple-touch-icon.png")} />
+    <link rel="sitemap" type="application/xml" href={sitemapUrl} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content={pageType === "article" ? "article" : pageType === "profile" ? "profile" : "website"} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+    {pageType === "article" && datePublished && <meta property="article:published_time" content={datePublished} />}
+    {pageType === "article" && (dateModified ?? datePublished) && <meta property="article:modified_time" content={dateModified ?? datePublished} />}
+    {pageType === "article" && tags.map((tag) => <meta property="article:tag" content={tag} />)}
+    <script type="application/ld+json" set:html={structuredDataJson}></script>
+  </head>
+  <body class="colorscheme-light">
+    <script is:inline set:html={themeScript} />
+    <a class="skip-link" href="#main-content" data-nosnippet>{t.skip}</a>
+    <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+
+    <nav class="navigation" aria-label="Primary" data-nosnippet>
+      <div class="container">
+        <a class="navigation-title" href={`/${lang}/`} aria-label={`${SITE.title} — ${t.home}`}>
+          <img class="navigation-logo" src={resolveAssetPath("/favicon.svg")} alt="" width="28" height="28" loading="eager" decoding="async" />
+          <span>{SITE.title}</span>
+        </a>
+
+        <button
+          type="button"
+          class="menu-toggle btn-reset"
+          id="menu-toggle"
+          aria-label={t.menu}
+          aria-controls="navigation-list"
+          aria-expanded="false"
+        >
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+
+        <ul class="navigation-list" id="navigation-list">
+          {MENU[lang].map((item) => (
+            <li>
+              <a
+                class:list={["navigation-link", { "is-active": isActive(item.href) }]}
+                href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a class="navigation-link" href={switchedPath} hreflang={oppositeLang} lang={oppositeLang} aria-label={t.lang}>
+              {oppositeLang.toUpperCase()}
+            </a>
+          </li>
+          <li class="nav-theme-toggle">
+            <button
+              type="button"
+              class="navigation-link btn-reset"
+              id="dark-mode-toggle"
+              aria-label={t.theme}
+              aria-pressed="false"
+            >
+              <Icon name="circle-half-stroke" />
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="content" id="main-content" tabindex="-1">
+      <slot />
+    </main>
+
+    <footer class="footer" data-nosnippet>
+      <small>
+        © {new Date().getFullYear()} {SITE.author} · <a href={`/${lang}/rss.xml`}>RSS</a>
+      </small>
+    </footer>
+
+    <template id="icon-copy" data-label={t.copy}><Icon set="regular" name="copy" /></template>
+    <template id="icon-check" data-label={t.copied}><Icon name="check" /></template>
+
+
+    <script>
+      const body = document.body;
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+      const menuToggle = document.getElementById("menu-toggle");
+      const navigationList = document.getElementById("navigation-list");
+      const scrollProgress = document.getElementById("scroll-progress");
+      const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+      const storage = {
+        get(key: string) {
+          try { return localStorage.getItem(key); } catch { return null; }
+        },
+        set(key: string, value: string) {
+          try { localStorage.setItem(key, value); } catch { /* storage unavailable */ }
+        },
+      };
+
+      // ---- Theme -----------------------------------------------------------
+      function setTheme(theme: "light" | "dark") {
+        body.classList.remove("colorscheme-light", "colorscheme-dark");
+        body.classList.add(`colorscheme-${theme}`);
+        document.documentElement.style.colorScheme = theme;
+        darkModeToggle?.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+      }
+
+      setTheme(body.classList.contains("colorscheme-dark") ? "dark" : "light");
+
+      darkModeToggle?.addEventListener("click", () => {
+        const nextTheme = body.classList.contains("colorscheme-dark") ? "light" : "dark";
+        setTheme(nextTheme);
+        storage.set("colorscheme", nextTheme);
+      });
+
+      darkModeMediaQuery.addEventListener("change", (event) => {
+        if (!storage.get("colorscheme")) setTheme(event.matches ? "dark" : "light");
+      });
+
+      // ---- Mobile menu -----------------------------------------------------
+      function setMenu(open: boolean) {
+        navigationList?.classList.toggle("is-open", open);
+        menuToggle?.classList.toggle("is-active", open);
+        menuToggle?.setAttribute("aria-expanded", open ? "true" : "false");
+        body.classList.toggle("menu-open", open);
+      }
+
+      menuToggle?.addEventListener("click", () => setMenu(!navigationList?.classList.contains("is-open")));
+      navigationList?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && navigationList?.classList.contains("is-open")) {
+          setMenu(false);
+          menuToggle?.focus();
+        }
+      });
+      window.matchMedia("(min-width: 769px)").addEventListener("change", (event) => {
+        if (event.matches) setMenu(false);
+      });
+
+      // ---- Scroll progress -------------------------------------------------
+      if (scrollProgress) {
+        let ticking = false;
+        const updateProgress = () => {
+          const root = document.documentElement;
+          const max = root.scrollHeight - root.clientHeight;
+          scrollProgress.style.transform = `scaleX(${max > 0 ? root.scrollTop / max : 0})`;
+          ticking = false;
+        };
+        window.addEventListener("scroll", () => {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(updateProgress);
+          }
+        }, { passive: true });
+        updateProgress();
+      }
+
+      // ---- Reveal animations (only for elements that opt in) ---------------
+      const revealTargets = document.querySelectorAll(".reveal-on-scroll");
+      if (revealTargets.length && "IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: "0px 0px -10% 0px" });
+        revealTargets.forEach((el) => revealObserver.observe(el));
+      } else {
+        revealTargets.forEach((el) => el.classList.add("is-visible"));
+      }
+
+      // ---- Code block copy buttons -----------------------------------------
+      // Icons and localized labels come from <template> elements, so no inline script is needed (CSP).
+      const copyTemplate = document.getElementById("icon-copy") as HTMLTemplateElement | null;
+      const checkTemplate = document.getElementById("icon-check") as HTMLTemplateElement | null;
+      const copyIcon = copyTemplate?.innerHTML ?? "";
+      const checkIcon = checkTemplate?.innerHTML ?? "";
+      const i18n = { copy: copyTemplate?.dataset.label ?? "Copy code", copied: checkTemplate?.dataset.label ?? "Copied" };
+
+      document.querySelectorAll<HTMLElement>(".code-block").forEach((container) => {
+        const pre = container.querySelector("pre");
+        if (!pre) return;
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "copy-code-btn";
+        button.innerHTML = copyIcon;
+        button.setAttribute("aria-label", i18n.copy);
+        button.title = i18n.copy;
+        container.appendChild(button);
+
+        button.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(pre.innerText.replace(/\n$/, ""));
+            button.innerHTML = checkIcon;
+            button.setAttribute("aria-label", i18n.copied);
+            button.classList.add("is-copied");
+            setTimeout(() => {
+              button.innerHTML = copyIcon;
+              button.setAttribute("aria-label", i18n.copy);
+              button.classList.remove("is-copied");
+            }, 2000);
+          } catch {
+            // Clipboard API unavailable (e.g. insecure context); leave the button unchanged.
+          }
+        });
+      });
+
+      // ---- Tabbed comparison blocks inside articles ------------------------
+      document.querySelectorAll(".interactive-comparison").forEach((comparison) => {
+        const tabs = comparison.querySelectorAll<HTMLElement>(".comp-tab");
+        const panels = comparison.querySelectorAll(".comp-panel");
+        tabs.forEach((tab) => {
+          tab.setAttribute("aria-selected", tab.classList.contains("active") ? "true" : "false");
+          tab.addEventListener("click", () => {
+            tabs.forEach((item) => {
+              item.classList.remove("active");
+              item.setAttribute("aria-selected", "false");
+            });
+            panels.forEach((item) => item.classList.remove("active"));
+            tab.classList.add("active");
+            tab.setAttribute("aria-selected", "true");
+            const target = tab.getAttribute("data-target");
+            if (target) comparison.querySelector(`#panel-${CSS.escape(target)}`)?.classList.add("active");
+          });
+        });
+      });
+
+      // ---- Mermaid diagrams (library is only downloaded on pages that use it)
+      const mermaidBlocks = document.querySelectorAll("pre > code.language-mermaid");
+      if (mermaidBlocks.length > 0) {
+        const containers: HTMLElement[] = [];
+        mermaidBlocks.forEach((block) => {
+          const pre = block.parentElement;
+          if (!pre?.parentNode) return;
+          const container = document.createElement("div");
+          container.className = "mermaid";
+          container.textContent = block.textContent?.trim() ?? "";
+          pre.replaceWith(container);
+          containers.push(container);
+        });
+
+        const fitDiagrams = () => {
+          const isMobile = window.innerWidth <= 768;
+          // Never shrink diagrams below a readable size; wider ones scroll horizontally instead.
+          const minScale = isMobile ? 0.85 : 0.6;
+          containers.forEach((container) => {
+            const svg = container.querySelector("svg");
+            const natural = svg?.viewBox.baseVal?.width;
+            if (!svg || !natural) return;
+            const style = getComputedStyle(container);
+            const available = container.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+            const width = natural <= available ? natural : Math.max(available, natural * minScale);
+            svg.style.width = `${Math.round(width)}px`;
+            svg.style.maxWidth = "none";
+            container.classList.toggle("is-scrollable", width > available + 1);
+          });
+        };
+
+        const renderMermaid = async () => {
+          const mermaid = (await import("mermaid")).default;
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: body.classList.contains("colorscheme-dark") ? "dark" : "default",
+            securityLevel: "strict",
+            flowchart: { useMaxWidth: false },
+            sequence: { useMaxWidth: false },
+            gantt: { useMaxWidth: false },
+            er: { useMaxWidth: false },
+            themeVariables: {
+              fontFamily: '"Inter Variable", Inter, system-ui, sans-serif',
+              fontSize: "14px",
+            },
+          });
+          await mermaid.run({ nodes: containers, suppressErrors: true });
+          fitDiagrams();
+
+          let resizeTimer: number | undefined;
+          window.addEventListener("resize", () => {
+            window.clearTimeout(resizeTimer);
+            resizeTimer = window.setTimeout(fitDiagrams, 150);
+          });
+        };
+
+        // Defer the ~600 KB library until the first diagram approaches the viewport.
+        const observer = new IntersectionObserver((entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            observer.disconnect();
+            void renderMermaid();
+          }
+        }, { rootMargin: "600px 0px" });
+        containers.forEach((container) => observer.observe(container));
+      }
+    </script>
+  </body>
+</html>

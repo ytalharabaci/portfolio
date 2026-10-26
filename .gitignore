@@ -1,0 +1,29 @@
+# Astro & Build Output
+.astro/
+dist/
+node_modules/
+.wrangler/
+
+# IDE & OS
+.idea/
+.vscode/*
+!.vscode/tasks.json
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python (helpers)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+*.pem
+*.key
