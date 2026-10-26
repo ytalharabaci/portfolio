@@ -50,8 +50,3 @@ Posts, write-ups, and the About/Projects pages can be edited in the browser with
 - **Cover image:** the `cover-image` field (`public/admin/cover-image.js`) and the Görseller page share the crop dialog in `public/admin/crop.js`: a fixed 1200 × 630 frame (drag, wheel/slider/pinch zoom, safe-zone guide). The result is saved as the post's `featured.webp`, overwriting the previous one, with a warning when the selected area is narrower than 1200 px.
 - **Upgrading Sveltia:** the script in `public/admin/index.html` is pinned to one version with an SRI hash; the comment there shows how to recompute the hash after changing the version.
 
-## License
-
-The source code is licensed under the [MIT License](LICENSE).
-All original blog posts, write-ups, articles, and personal media located under `content/` and `public/` are copyrighted © Yusuf Talha Arabacı, all rights reserved.
-
