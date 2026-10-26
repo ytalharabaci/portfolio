@@ -41,6 +41,8 @@ Sysmon'un bir uç noktaya konuşlandırılması oldukça hızlı ve doğrudan bi
 * **Sysmon İndirme Bağlantısı:** [Microsoft Sysinternals Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon)
 * **Örnek Konfigürasyon Deposu:** [Olaf Hartong - sysmon-modular](https://github.com/olafhartong/sysmon-modular)
 
+taslak taslak
+
 ### Adım Adım Dağıtım Süreci
 
 Sysmon kurulumu için aşağıdaki adımlar izlenir:
