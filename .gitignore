@@ -3,6 +3,13 @@
 dist/
 node_modules/
 .wrangler/
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # IDE & OS
 .idea/

@@ -49,3 +49,9 @@ Posts, write-ups, and the About/Projects pages can be edited in the browser with
 - **Görseller page (`/admin/media/`):** shows each post folder (`content/<slug>/`) with its cover, title and image count; inside a folder you upload (WebP, max 1200 px), delete, copy the Markdown for an image, or crop a cover. It flags images the post does not reference. Sveltia's own Media page redirects here (`public/admin/media-link.js`), because Sveltia lists entry-relative media as one flat folder. It signs in with the same token and commits through the GitHub API, one commit per upload or delete.
 - **Cover image:** the `cover-image` field (`public/admin/cover-image.js`) and the Görseller page share the crop dialog in `public/admin/crop.js`: a fixed 1200 × 630 frame (drag, wheel/slider/pinch zoom, safe-zone guide). The result is saved as the post's `featured.webp`, overwriting the previous one, with a warning when the selected area is narrower than 1200 px.
 - **Upgrading Sveltia:** the script in `public/admin/index.html` is pinned to one version with an SRI hash; the comment there shows how to recompute the hash after changing the version.
+
+## License
+
+The source code is licensed under the [MIT License](LICENSE).
+All original blog posts, write-ups, articles, and personal media located under `content/` and `public/` are copyrighted © Yusuf Talha Arabacı, all rights reserved.
+
