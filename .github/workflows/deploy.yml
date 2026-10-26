@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'website/**'
-      - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
 concurrency:
@@ -26,14 +23,12 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
-          cache-dependency-path: website/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        working-directory: website
         run: npm ci
 
       - name: Build Astro site
-        working-directory: website
         run: npm run build
 
       - name: Deploy to Cloudflare Workers
@@ -41,6 +36,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: 'website'
           command: deploy
-
