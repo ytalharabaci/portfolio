@@ -1,52 +1,24 @@
-# ytalharabaci.dev (Astro + Cloudflare Worker)
+# ytalharabaci.dev
 
-Bilingual (TR/EN) personal site and technical blog, built with Astro and published as a static site.
+> Personal bilingual (TR/EN) portfolio & cybersecurity blog built with Astro, Cloudflare Workers and Sveltia CMS.
 
-## Requirements
+🌐 **Live:** [https://ytalharabaci.dev](https://ytalharabaci.dev)
 
-- Node.js 22.12 or newer (CI uses Node 22)
+---
 
-## Local development
+### 🛠️ Tech Stack & Architecture
 
-```bash
-npm install
-npm run dev
-```
+- **Framework:** [Astro](https://astro.build/) (Static Site Generation — SSG)
+- **Deployment & Edge:** [Cloudflare Workers](https://workers.cloudflare.com/) (Assets binding, OAuth & edge routing)
+- **Content Management:** [Sveltia CMS](https://sveltiacms.app/) (Decoupled, Git-based CMS with custom media manager)
+- **Styling:** Custom CSS design system (Dark/Light modes, design tokens)
+- **CI/CD:** GitHub Actions (Automated build & Cloudflare deployment)
 
-## Production build
+---
 
-```bash
-npm run build
-npm run preview
-```
+### 📂 Repository Structure
 
-## Project structure
-
-- `content/<slug>/index.{tr,en}.md`: posts and write-ups, with their images in the same folder (see `./blog-publishing-procedure.md`). The `index.<lang>.md` naming is the Sveltia CMS `multiple_files` i18n layout.
-- `content/about`, `content/projects`: standalone pages (the Projects page only takes its title and intro from markdown).
-- `src/data/projects.ts`: project cards for the Projects page and the home page (`featured: true`).
-- `src/config/site.ts`: site metadata, contact email, availability status, navigation, and the `TOPICS` used to filter posts.
-- `src/lib/content.ts`: frontmatter parsing, markdown rendering (marked + build-time Shiki highlighting), HTML sanitizing, table of contents.
-- `src/components/`: `ArticlePage` (post/write-up layout), `PostCard`, `Icon` (inline Font Awesome SVGs).
-- `src/layouts/BaseLayout.astro`: page shell, SEO metadata, theme toggle, Mermaid loader.
-- `src/lib/csp.ts`: registers CSP hashes for the two render-blocking inline scripts. Every other script must be a bundled `<script>` (not `is:inline`), or the page CSP blocks it.
-- `src/pages/.well-known/security.txt.ts`: RFC 9116 security.txt; its `Expires` date is renewed on each deploy.
-- `src/styles/base.css`: the single global stylesheet (design tokens, typography, components).
-- `public/`: files served as-is at the site root.
-
-## Deployment
-
-- Deployed to Cloudflare Workers using Wrangler (`npx wrangler deploy`).
-
-## Content editing (CMS)
-
-Posts, write-ups, and the About/Projects pages can be edited in the browser with [Sveltia CMS](https://sveltiacms.app/en/docs) at `https://ytalharabaci.dev/admin/` (`public/admin/`). Every save is a commit to `main`.
-
-- **Sign-in:** both "Sign in with GitHub" (OAuth handled natively by the Cloudflare Worker at `/auth` and `/callback`) and "Sign In with Token" (fine-grained personal access token for `ytalharabaci/portfolio`) are supported.
-- **Local editing:** with `npm run dev`, open `http://localhost:4321/admin/` in Chrome or Edge, choose "Work with Local Repository", and select the `portfolio` folder. Changes are written to disk; commit them yourself.
-- **Collections:** "Yazılar" holds blog posts and write-ups (the `Type` field decides which), with TR and EN side by side in one entry. The slug is the folder name and URL. "Sayfalar" holds the About and Projects pages.
-- **Images:** every uploaded raster image is converted to WebP (quality 85) and scaled down to at most 1200 px wide before it is committed, and is stored next to the post. Inside a post, the image picker's "İçeriğe Özel Medyalar" lists that post's folder. Images for the About and Projects pages go to `public/images/`.
-- **Görseller page (`/admin/media/`):** shows each post folder (`content/<slug>/`) with its cover, title and image count; inside a folder you upload (WebP, max 1200 px), delete, copy the Markdown for an image, or crop a cover. It flags images the post does not reference. Sveltia's own Media page redirects here (`public/admin/media-link.js`), because Sveltia lists entry-relative media as one flat folder. It signs in with the same token and commits through the GitHub API, one commit per upload or delete.
-- **Cover image:** the `cover-image` field (`public/admin/cover-image.js`) and the Görseller page share the crop dialog in `public/admin/crop.js`: a fixed 1200 × 630 frame (drag, wheel/slider/pinch zoom, safe-zone guide). The result is saved as the post's `featured.webp`, overwriting the previous one, with a warning when the selected area is narrower than 1200 px.
-- **Upgrading Sveltia:** the script in `public/admin/index.html` is pinned to one version with an SRI hash; the comment there shows how to recompute the hash after changing the version.
-
+- `content/` — Bilingual (TR/EN) blog posts, write-ups, and post-relative WebP assets
+- `src/` — Astro layouts, UI components, and TypeScript source
+- `worker/` — Cloudflare Edge Worker handling GitHub OAuth & edge routing
+- `public/` — Static assets and Sveltia CMS `/admin/` interface
