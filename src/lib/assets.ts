@@ -11,7 +11,6 @@ const MIME_TYPES: Record<string, string> = {
   ".webp": "image/webp",
   ".avif": "image/avif",
   ".svg": "image/svg+xml",
-  ".mp3": "audio/mpeg",
 };
 
 function listFiles(dir: string, baseDir = dir): Array<{ relativePath: string; absolutePath: string }> {

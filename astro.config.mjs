@@ -65,8 +65,8 @@ export default defineConfig({
   },
   vite: {
     build: {
-      // Mermaid's diagram chunks are large but only downloaded on pages that contain diagrams.
-      chunkSizeWarningLimit: 700,
+      // Mermaid's diagram chunks are large (~650 kB) but only downloaded on pages that contain diagrams.
+      chunkSizeWarningLimit: 900,
     },
   },
 });

@@ -56,8 +56,6 @@ const FrontmatterSchema = z.looseObject({
   featuredImageAlt: z.string().trim().min(1).optional(),
   coverImage: z.string().trim().min(1).optional(),
   image: z.string().trim().min(1).optional(),
-  audioFile: z.string().trim().min(1).optional(),
-  audio: z.string().trim().min(1).optional(),
   tags: z.union([z.array(z.string()), z.string()]).optional(),
   category: z.string().trim().min(1).optional(),
   series: z.union([z.array(z.string()), z.string()]).optional(),

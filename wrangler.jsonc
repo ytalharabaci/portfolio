@@ -20,7 +20,13 @@
     ]
   },
   "vars": {
-    "ALLOWED_DOMAINS": "ytalharabaci.dev,*.ytalharabaci.dev,localhost,127.0.0.1,*.workers.dev"
+    "ALLOWED_DOMAINS": "ytalharabaci.dev,*.ytalharabaci.dev,localhost,127.0.0.1,ytalharabaci.workers.dev"
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "observability": {
+    "enabled": true
   },
   "routes": [
     {

@@ -1,8 +1,6 @@
 // SEO and Publishing Helper for Sveltia CMS
 // Features: Description character counter, H1 validator, and live SERP/Social card preview
 (() => {
-  let activeEntry = null;
-
   // 1. Description Character Counter & H1 Checker
   const checkFields = () => {
     // Find description textarea

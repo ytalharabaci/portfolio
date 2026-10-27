@@ -1,12 +1,12 @@
 # Blog Yazısı Yayınlama Standartları ve Prosedürü (Blog Publishing Standards & Procedure)
 
-Bu doküman, yusufarbc blog sitesinde yeni yazı yazma, çeviri, görsel/ses optimizasyonu ve seslendirme süreçlerinde takip edilmesi gereken standartları belirler.
+Bu doküman, yusufarbc blog sitesinde yeni yazı yazma, çeviri, görsel optimizasyonu ve yayınlama süreçlerinde takip edilmesi gereken standartları belirler.
 
 ---
 
 ## 📂 Klasör Yapısı ve Dosya Hiyerarşisi
 
-Tüm varlıklar (görsel, ses, metin) yazının kendi klasörü (slug) altında saklanmalıdır. Genel `/public` klasörü **kullanılmamalıdır**.
+Tüm varlıklar (görsel ve metin) yazının kendi klasörü (slug) altında saklanmalıdır. Genel `/public` klasörü **kullanılmamalıdır**.
 
 ```text
 content/yazı-slug-adı/
@@ -17,28 +17,28 @@ content/yazı-slug-adı/
 ```
 
 > [!IMPORTANT]
-> Depo boyutunu korumak amacıyla ham görsel (`.png`, `.jpg`) ve yüksek boyutlu ham ses (`.wav`) dosyaları kesinlikle repoya eklenmemelidir.
+> Depo boyutunu korumak amacıyla ham görsel (`.png`, `.jpg`) dosyaları kesinlikle repoya eklenmemelidir.
 >
 > ### 🖼️ Kapak Görseli (Featured Image) ve Open Graph (OG) Standardı
 > - **Tam Boyut:** 1200 × 630 piksel
 > - **En-Boy Oranı:** 1.91:1
 > - **Format:** `featured.webp` (WebP kalitesi %80-85, dosya boyutu < 150 KB)
 > - **Kullanım Amacı:** Web ve dijital pazarlama dünyasında buna **Open Graph (OG) Görsel Boyutu** denir. Web sitesinin linki WhatsApp, LinkedIn, Facebook, X (Twitter / `summary_large_image`), Slack veya Telegram gibi yerlere yapıştırıldığında otomatik açılan önizleme kartının (kart banner'ının) kesilmeden, tam oturması için belirlenmiş evrensel standarttır.
-> - **Tasarım & Kompozisyon Kuralı:** Görsel kenardan kenara (full-bleed / edge-to-edge) tüm çerçeveyi doldurmalıdır. Kare bir görselin sağına/soluna beyaz veya siyah boşluk (pillarbox/letterbox) eklenerek 1200x630 yapılmamalıdır. Ana odak noktası (ikon/logo/merkez öge) merkezdeki güvenli alanda (Safe Zone ~ 1080 × 560 px) yer almalıdır.
-yazı içermemeli
+> - **Tasarım & Kompozisyon Kuralı:** Görsel kenardan kenara (full-bleed / edge-to-edge) tüm çerçeveyi doldurmalıdır. Kare bir görselin sağına/soluna beyaz veya siyah boşluk (pillarbox/letterbox) eklenerek 1200x630 yapılmamalıdır. Ana odak noktası (ikon/logo/merkez öge) merkezdeki güvenli alanda (Safe Zone ~ 1080 × 560 px) yer almalı ve üzerinde karmaşık yazı içermemelidir.
+
 ---
 
 ## 🏷️ İçerik ve Yazım Standartları
 
 ### 1. Başlık Hiyerarşisi
-- **Numaralandırma Yok:** Başlıklarda `1.`, `1.1` gibi numaralar kullanılmaz. Otomatik TOC (İçindekiler) menüsü ve seslendirme scriptleri hiyerarşiyi kendiliğinden yönetir.
+- **Numaralandırma Yok:** Başlıklarda `1.`, `1.1` gibi numaralar kullanılmaz. Otomatik TOC (İçindekiler) menüsü hiyerarşiyi kendiliğinden yönetir.
 - **Seviyeler:** Makale gövdesinde `# H1` kullanılmaz (YAML frontmatter'daki `title` alanından çekilir). Bölümler için `## H2`, alt başlıklar için `### H3` (en fazla `#### H4`) kullanılır.
 - **Geçişler:** Her `## H2` başlığından önce yatay çizgi (`---`) eklenmelidir. H2 başlığının hemen altına araya açıklayıcı bir paragraf girmeden H3 başlığı getirilmemelidir.
 
 ### 2. Giriş ve Sonuç Bölümleri
 - **H2 Başlığı Kullanılmamalıdır:** Giriş ve Sonuç kısımları için kesinlikle `## Giriş` veya `## Sonuç` gibi H2 başlıkları açılmamalıdır. Bu sayede sol TOC menüsü yalnızca teknik ana bölümlere odaklanır.
 - **Giriş:** Doğrudan başlar, 1-2 paragrafın ardından kıyaslama tablosu içeren `<div class="glass-panel reveal-on-scroll">` bloğu ile devam eder.
-- **Sonuç:** Son teknik bölümden (veya `---` çizgisinden) sonra düz paragraf olarak akmalıdır. Türkçe kapanışta `"Verinizin mimarı olun, egemenliğinizi geri alın. Dinlediğiniz için teşekkürler!"` veya benzeri bir ifade kullanılmalıdır.
+- **Sonuç:** Son teknik bölümden (veya `---` çizgisinden) sonra düz paragraf olarak akmalıdır. Türkçe kapanışta `"Verinizin mimarı olun, egemenliğinizi geri alın. Okuduğunuz için teşekkürler!"` veya benzeri bir ifade kullanılmalıdır.
 
 ### 3. Mermaid Diyagramları
 - **Sadelik:** Node sayısı 8-10 adedi geçmeyen, doğrusal/katmanlı (`graph TD` veya `graph LR`) akışlar tercih edilmelidir.
@@ -72,10 +72,9 @@ yazı içermemeli
 Scriptlerin ve bu dokümanın depo kökünde (`/`) bulunması, yapay zeka ajanlarının bu kuralları doğrudan okuyabilmesini sağlar.
 
 ### Ön Gereksinimler:
-Sisteminizde Python 3, Pillow kütüphanesi ve FFmpeg kurulu olmalıdır:
+Sisteminizde Python 3 ve Pillow kütüphanesi kurulu olmalıdır:
 ```powershell
 pip install pillow
-winget install ffmpeg
 ```
 
 ### Adım 1: Klasör ve Metin Dosyaları
@@ -92,8 +91,8 @@ python optimize_images.py content/yazı-slug-adı/ --delete
 > **Kapak Görseli (`featured.webp`):** Yazının kapak görseli (`featured.webp`) kesinlikle **1200 x 630 piksel** (1.91:1 Open Graph standardı) boyutunda olmalıdır. Kenarlarda boşluk kalmamalı (full-bleed), sosyal medya ve link paylaşımlarında kusursuz görünmelidir.
 
 
-### Adım 3 YAML Frontmatter Yapılandırması
-`index.tr.md` ve `index.en.md` dosyalarının başına ses parametrelerini ekleyin:
+### Adım 3: YAML Frontmatter Yapılandırması
+`index.tr.md` ve `index.en.md` dosyalarının başına şu frontmatter bloğunu ekleyin:
 ```yaml
 ---
 title: "Ofis Ekosisteminden Kaçış"
@@ -121,7 +120,7 @@ npm run dev
 Adım 1–3, `https://ytalharabaci.dev/admin/` (Sveltia CMS) üzerinden de yapılabilir. Giriş ve kurulum ayrıntıları `README.md` içindeki "Content editing (CMS)" bölümündedir.
 
 1. **Yazılar** koleksiyonunda yeni yazı açın ve `Type` alanında Blog ya da Write-up seçin. Slug panelinde klasör adını girin (ör. `detection-engineering-as-code`). Yazı `draft: true` olarak başlar.
-2. Türkçe ve İngilizce sürümler aynı girdide yan yana düzenlenir. Tarih, tür, konu ve kapak görseli gibi ortak alanlar TR'den EN'e otomatik kopyalanır. Başlık, açıklama, etiketler ve gövde her dilde ayrıdır.
+2. Türkçe ve İngilizce sürümler aynı girdide yan yana düzenlenir. Tarih, tür, konu ve kapak görseli gibi ortak alanlar TR'den EN'e otomatik kopyalanır. Başlık, açıklama ve gövdeyi tek tek çevirmek yerine üst barda bulunan **🌐 AI Çeviri (TR ↔ EN)** butonuna tıklayarak Cloudflare Workers AI (Llama 3.1) ile tüm içeriği Markdown yapısını, tabloları ve kod bloklarını koruyarak tek tıkla diğer dile çevirebilir ve forma aktarabilirsiniz.
 3. **Kapak görseli** alanında görseli seçin; açılan pencerede 1200 × 630 çerçeveye göre kırpın, sonuç `featured.webp` olarak kaydedilir. Yazı içi görseller yazının klasörüne kaydedilir ve otomatik olarak WebP'ye (en fazla 1200 px genişlik) dönüştürülür.
    - Bir yazının tüm görsellerini görmek, toplu yüklemek veya silmek için panelin medya simgesini kullanın: **Görseller** sayfası (`/admin/media/`) her yazıyı bir klasör olarak gösterir, yazıda kullanılmayan görselleri işaretler ve görselin Markdown kodunu (`![Görselin kısa açıklaması](dosya.webp)`) kopyalar.
 4. Hazır olduğunda iki dilde de `Draft` işaretini kaldırıp kaydedin. Her kayıt `main`'e commit edilir ve GitHub Actions siteyi yeniden yayınlar.
