@@ -88,6 +88,39 @@
   const observer = new MutationObserver(hideFieldTranslateButtons);
   observer.observe(document.documentElement, { childList: true, subtree: true });
 
-  console.info("⚡ [Cloudflare Workers AI] Sveltia CMS tek ana çeviri butonu aktif (TR ↔ EN).");
+  // 4. Smart Markdown Paste Handler:
+  // When pasting Markdown text (with ## headings, images ![], bullet lists, tables) into the WYSIWYG editor,
+  // automatically switch to raw Markdown mode so headers, lists, and image syntax are never stripped!
+  document.addEventListener("paste", (e) => {
+    const lexicalRoot = e.target?.closest(".lexical-root");
+    if (!lexicalRoot) return;
+
+    const pastedText = e.clipboardData?.getData("text/plain") || "";
+    const hasMarkdown = /(?:^|\n)(?:#{1,6}\s|[-*]\s|\!\[.*?\]\(.*?\)|```|\|.*?\|)/m.test(pastedText);
+    if (!hasMarkdown) return;
+
+    const widget = lexicalRoot.closest(".field, [class*='widget']");
+    const modeBtn = widget?.querySelector(
+      "button[aria-label*='markdown' i], button:has([name='markdown']), button:has(.material-symbols-outlined)"
+    );
+    if (modeBtn) {
+      e.preventDefault();
+      modeBtn.click();
+      setTimeout(() => {
+        const textarea = widget.querySelector("textarea");
+        if (textarea) {
+          const start = textarea.selectionStart || 0;
+          const end = textarea.selectionEnd || 0;
+          const val = textarea.value;
+          textarea.value = val.slice(0, start) + pastedText + val.slice(end);
+          textarea.selectionStart = textarea.selectionEnd = start + pastedText.length;
+          textarea.dispatchEvent(new Event("input", { bubbles: true }));
+          textarea.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      }, 60);
+    }
+  });
+
+  console.info("⚡ [Cloudflare Workers AI] Sveltia CMS tek ana çeviri butonu ve Akıllı Markdown yapıştırma aktif.");
 })();
 

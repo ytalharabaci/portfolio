@@ -173,6 +173,6 @@ collections:
         label: İçerik
         widget: richtext
         i18n: true
-        modes: [rich_text, raw]
+        modes: [raw, rich_text]
 
 
