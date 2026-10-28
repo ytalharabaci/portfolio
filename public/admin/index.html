@@ -18,6 +18,8 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
   <body>
+    <!-- Cloudflare Workers AI Bridge: pre-configures Sveltia translation and routes native requests to Workers AI -->
+    <script src="/admin/translate-bridge.js"></script>
     <!--
       Pinned version with Subresource Integrity. To upgrade, change the version and recompute the hash:
       curl -sL https://unpkg.com/@sveltia/cms@<version>/dist/sveltia-cms.js | openssl dgst -sha384 -binary | openssl base64 -A
@@ -35,6 +37,5 @@
     <script src="/admin/editor-components.js"></script>
     <script src="/admin/deploy-status.js"></script>
     <script src="/admin/seo-helper.js"></script>
-    <script src="/admin/translate-helper.js"></script>
   </body>
 </html>

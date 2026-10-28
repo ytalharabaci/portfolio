@@ -159,7 +159,7 @@ const handleAuth = async (request: Request, env: Env): Promise<Response> => {
     });
   }
 
-  const csrfToken = globalThis.crypto.randomUUID().replaceAll('-', '');
+  const csrfToken = crypto.randomUUID().replaceAll('-', '');
 
   const params = new URLSearchParams({
     client_id: GITHUB_CLIENT_ID,
@@ -494,6 +494,155 @@ STRICT RULES:
   }
 };
 
+interface SveltiaChatMessage {
+  role: 'system' | 'user' | 'assistant';
+  content: string;
+}
+
+interface SveltiaChatPayload {
+  model?: string;
+  messages?: SveltiaChatMessage[];
+  temperature?: number;
+  max_tokens?: number;
+  stream?: boolean;
+}
+
+const handleSveltiaTranslate = async (request: Request, env: Env): Promise<Response> => {
+  const origin = request.headers.get('Origin') || '';
+  const referer = request.headers.get('Referer') || '';
+  let callerHost = '';
+  try {
+    if (origin) callerHost = new URL(origin).hostname;
+    else if (referer) callerHost = new URL(referer).hostname;
+  } catch {}
+
+  const corsOrigin = callerHost && isAllowedHost(callerHost, env.ALLOWED_DOMAINS)
+    ? (origin || (referer ? new URL(referer).origin : 'https://ytalharabaci.dev'))
+    : 'https://ytalharabaci.dev';
+
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': corsOrigin,
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      },
+    });
+  }
+
+  if (request.method !== 'POST') {
+    return new Response('Method not allowed', { status: 405 });
+  }
+
+  if (callerHost && !isAllowedHost(callerHost, env.ALLOWED_DOMAINS)) {
+    return new Response('Forbidden: untrusted origin', { status: 403 });
+  }
+
+  const secFetchSite = request.headers.get('Sec-Fetch-Site') || '';
+  if (secFetchSite === 'cross-site') {
+    return new Response('Forbidden: cross-site requests are blocked', { status: 403 });
+  }
+
+  if (!env.AI) {
+    return new Response(
+      JSON.stringify({ error: "Workers AI binding 'AI' is not configured in environment." }),
+      {
+        status: 500,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': corsOrigin },
+      }
+    );
+  }
+
+  let body: SveltiaChatPayload;
+  try {
+    body = await request.json();
+  } catch {
+    return new Response(JSON.stringify({ error: 'Invalid JSON body' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': corsOrigin },
+    });
+  }
+
+  const messages = body.messages;
+  if (!messages || !Array.isArray(messages) || messages.length === 0) {
+    return new Response(JSON.stringify({ error: 'Missing or invalid "messages" array' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': corsOrigin },
+    });
+  }
+
+  try {
+    const aiResponse = await env.AI.run('@cf/meta/llama-3.1-8b-instruct-fast', {
+      messages: messages.map((m) => ({
+        role: m.role,
+        content: m.content,
+      })),
+      temperature: Math.min(Number(body.temperature) || 0.2, 0.5),
+      max_tokens: 8192,
+    });
+
+    let rawText = ((aiResponse as any)?.response || '').trim();
+
+    // Strip markdown code fences if wrapped by the LLM
+    if (rawText.startsWith('```')) {
+      rawText = rawText.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
+    }
+
+    // Isolate outer JSON array [ ... ]
+    const firstBracket = rawText.indexOf('[');
+    const lastBracket = rawText.lastIndexOf(']');
+    if (firstBracket !== -1 && lastBracket !== -1 && lastBracket > firstBracket) {
+      rawText = rawText.slice(firstBracket, lastBracket + 1);
+    }
+
+    // Ensure it parses as a JSON array of strings
+    try {
+      const parsed = JSON.parse(rawText);
+      if (!Array.isArray(parsed)) {
+        rawText = JSON.stringify([rawText]);
+      }
+    } catch {
+      rawText = JSON.stringify([rawText]);
+    }
+
+    // Return response format matching OpenAI / DeepSeek Chat Completions for Sveltia CMS
+    return new Response(
+      JSON.stringify({
+        id: `chatcmpl-${crypto.randomUUID()}`,
+        object: 'chat.completion',
+        created: Math.floor(Date.now() / 1000),
+        model: 'llama-3.1-8b-instruct-fast',
+        choices: [
+          {
+            index: 0,
+            message: {
+              role: 'assistant',
+              content: rawText,
+            },
+            finish_reason: 'stop',
+          },
+        ],
+      }),
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Access-Control-Allow-Origin': corsOrigin,
+        },
+      }
+    );
+  } catch (err: any) {
+    return new Response(
+      JSON.stringify({ error: `Translation failed: ${err?.message || String(err)}` }),
+      {
+        status: 500,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': corsOrigin },
+      }
+    );
+  }
+};
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -513,9 +662,13 @@ export default {
       return handleProxyImage(request, env);
     }
 
-    // 3. AI Translation endpoint powered by Cloudflare Workers AI
+    // 3. AI Translation endpoints powered by Cloudflare Workers AI
     if (pathname === '/api/translate') {
       return handleTranslate(request, env);
+    }
+
+    if (pathname === '/api/translate-sveltia' || pathname === '/api/chat-completions') {
+      return handleSveltiaTranslate(request, env);
     }
 
     // 4. Dynamic config.yml helper: rewrite base_url to current origin if accessing on localhost or staging

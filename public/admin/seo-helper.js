@@ -92,35 +92,92 @@
   // 2. Live Social & SERP Card Preview Modal
   const addSeoPreviewButton = () => {
     const hash = window.location.hash;
-    if (!hash.includes("/entries/")) return;
+    if (!hash.includes("/entries/")) {
+      const existing = document.getElementById("yc-seo-preview-btn");
+      if (existing) existing.remove();
+      return;
+    }
 
-    if (document.getElementById("yc-seo-preview-btn")) return;
+    let btn = document.getElementById("yc-seo-preview-btn");
+    const header = document.querySelector("header");
+    const saveBtn = header?.querySelector("button[class*='primary'], button:has([class*='save' i]), button:has(span)")
+      || header?.querySelector("button");
 
-    // Place button in header actions or float top right
-    const btn = document.createElement("button");
+    // If button already exists, check if it can be promoted into header
+    if (btn) {
+      if (saveBtn && saveBtn.parentElement && btn.parentElement !== saveBtn.parentElement) {
+        btn.style.cssText = `
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 5px 12px;
+          margin-right: 8px;
+          border-radius: 6px;
+          border: 1px solid var(--sui-primary-border-color, #cbd5e1);
+          background: var(--sui-surface-color, #ffffff);
+          color: var(--sui-text-color, #1e293b);
+          font-size: 12px;
+          font-weight: 500;
+          cursor: pointer;
+          height: 32px;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+          transition: all 0.2s ease;
+          white-space: nowrap;
+        `;
+        saveBtn.parentElement.insertBefore(btn, saveBtn);
+      }
+      return;
+    }
+
+    btn = document.createElement("button");
     btn.id = "yc-seo-preview-btn";
     btn.type = "button";
-    btn.style.cssText = `
-      position: fixed;
-      top: 12px;
-      right: 180px;
-      z-index: 1000;
-      padding: 6px 12px;
-      border-radius: 6px;
-      border: 1px solid var(--sui-primary-border-color, #cbd5e1);
-      background: var(--sui-surface-color, #ffffff);
-      color: var(--sui-text-color, #1e293b);
-      font-size: 12px;
-      font-weight: 500;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    `;
     btn.innerHTML = `👁️ <span>Sosyal Kart & SERP</span>`;
     btn.onclick = openSeoModal;
-    document.body.appendChild(btn);
+
+    if (saveBtn && saveBtn.parentElement) {
+      btn.style.cssText = `
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 12px;
+        margin-right: 8px;
+        border-radius: 6px;
+        border: 1px solid var(--sui-primary-border-color, #cbd5e1);
+        background: var(--sui-surface-color, #ffffff);
+        color: var(--sui-text-color, #1e293b);
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        height: 32px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      `;
+      saveBtn.parentElement.insertBefore(btn, saveBtn);
+    } else {
+      // Safe fallback docked at bottom left, completely clear of header and deploy badge
+      btn.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 9999;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--sui-primary-border-color, #cbd5e1);
+        background: var(--sui-surface-color, #ffffff);
+        color: var(--sui-text-color, #1e293b);
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: all 0.2s ease;
+      `;
+      document.body.appendChild(btn);
+    }
   };
 
   const openSeoModal = () => {
