@@ -90,14 +90,14 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
           <a href="https://adeo.com.tr/" class="exp-company" target="_blank">@ ADEO Cyber Security</a>
         </div>
         <div class="exp-meta">
-          <span class="exp-date">2023 – 2024</span>
+          <span class="exp-date">Oct 2023 – Oct 2024 · 1 yr 1 mo</span>
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Ankara, Turkey · Hybrid</span>
         </div>
       </div>
       <ul class="exp-details">
         <li>Delivered 24/7 Managed Detection and Response (MDR) across <strong>60+ enterprise client environments</strong>, performing real-time triage, investigation, and containment of cyber attacks.</li>
-        <li>Operated and fine-tuned a multi-vendor security products including <strong>CrowdStrike Falcon, SentinelOne, Palo Alto Cortex XDR, Microsoft Defender XDR, and Vectra AI (NDR)</strong>.</li>
-        <li>Built and maintained automated response playbooks in <strong>Cortex XSOAR</strong> and performed continuous EDR/NDR rule tuning to reduce alert fatigue across customer fleets.</li>
+        <li>Operated and fine-tuned a multi-vendor security stack including <strong>CrowdStrike Falcon, SentinelOne, Palo Alto Cortex XDR, Microsoft Defender XDR, Microsoft Sentinel, and Vectra AI (NDR)</strong>.</li>
+        <li>Supported building automated response playbooks in <strong>Cortex XSOAR</strong> and performed continuous EDR/NDR rule tuning to reduce alert fatigue across customer fleets.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">MDR Operations (60+ Clients)</span>
@@ -106,6 +106,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
         <span class="skill-tag">Cortex XDR</span>
         <span class="skill-tag">Cortex XSOAR</span>
         <span class="skill-tag">Defender XDR</span>
+        <span class="skill-tag">Microsoft Sentinel</span>
         <span class="skill-tag">Vectra AI (NDR)</span>
       </div>
     </div>
@@ -120,18 +121,20 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
           <a href="https://www.consulta.com.tr/en/" class="exp-company" target="_blank">@ Consulta</a>
         </div>
         <div class="exp-meta">
-          <span class="exp-date">Summer 2023</span>
+          <span class="exp-date">Jul 2023 – Sep 2023 · 3 mos</span>
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Istanbul, Turkey · On-site</span>
         </div>
       </div>
       <ul class="exp-details">
-        <li>Assisted in enterprise IT infrastructure, Active Directory user/group administration, and system security operations.</li>
-        <li>Supported Linux server hardening, M365/Exchange administration, and helpdesk troubleshooting.</li>
+        <li>Assisted in IT infrastructure and Active Directory user/group administration.</li>
+        <li>Supported server hardening, M365/Exchange administration, and helpdesk troubleshooting.</li>
+        <li>Contributed to internal security awareness initiatives and operational IT documentation.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Active Directory</span>
         <span class="skill-tag">Microsoft 365</span>
-        <span class="skill-tag">Linux Hardening</span>
+        <span class="skill-tag">Server Hardening</span>
+        <span class="skill-tag">Helpdesk Support</span>
         <span class="skill-tag">System Administration</span>
       </div>
     </div>
@@ -146,18 +149,17 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
           <span class="exp-company">@ BG-Tek Bilgi Güvenliği Teknolojileri</span>
         </div>
         <div class="exp-meta">
-          <span class="exp-date">Summer 2022</span>
+          <span class="exp-date">Jul 2022 – Aug 2022 · 2 mos</span>
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Bursa, Turkey · On-site</span>
         </div>
       </div>
       <ul class="exp-details">
-        <li>Performed web application and network penetration testing across lab and client test environments.</li>
-        <li>Assisted in automated vulnerability assessments, exploit verification, and technical security reporting.</li>
+        <li>Assisted in simulated web application and network penetration testing across controlled lab environments.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Web Application Security</span>
         <span class="skill-tag">Network Security</span>
-        <span class="skill-tag">Penetration Testing</span>
+        <span class="skill-tag">Lab Testing</span>
         <span class="skill-tag">Vulnerability Assessment</span>
       </div>
     </div>

@@ -90,14 +90,14 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
           <a href="https://adeo.com.tr/" class="exp-company" target="_blank">@ ADEO Siber Güvenlik</a>
         </div>
         <div class="exp-meta">
-          <span class="exp-date">2023 – 2024</span>
+          <span class="exp-date">Ekim 2023 – Ekim 2024 · 1 yıl 1 ay</span>
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Ankara, Türkiye · Hibrit</span>
         </div>
       </div>
       <ul class="exp-details">
         <li><strong>60'tan fazla kurumsal müşteriye</strong> 7/24 Yönetilen Tespit ve Müdahale (MDR) hizmeti vererek siber saldırıların gerçek zamanlı triyajını, derinlemesine analizini ve yayılım engellemesini (containment) gerçekleştirdim.</li>
-        <li><strong>CrowdStrike Falcon, SentinelOne, Cortex XDR, Defender XDR ve Vectra AI (NDR)</strong> dahil olmak üzere çok kullanıcılı platformları aktif olarak yönettim ve optimize ettim.</li>
-        <li><strong>Cortex XSOAR</strong> üzerinde otomatik müdahale iş akışları (playbook) geliştirdim ve alarm yorgunluğunu azaltmak için müşteri altyapılarında sürekli EDR ve NDR kural optimizasyonu yürüttüm.</li>
+        <li><strong>CrowdStrike Falcon, SentinelOne, Cortex XDR, Defender XDR, Microsoft Sentinel ve Vectra AI (NDR)</strong> dahil olmak üzere çok üreticili güvenlik yığınını aktif olarak yönettim ve optimize ettim.</li>
+        <li><strong>Cortex XSOAR</strong> üzerinde otomatik müdahale iş akışları (playbook) geliştirilmesine destek verdim ve alarm yorgunluğunu azaltmak için müşteri ortamlarında sürekli EDR ve NDR kural optimizasyonu yürüttüm.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">MDR Operasyonları (60+ Müşteri)</span>
@@ -106,6 +106,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
         <span class="skill-tag">Cortex XDR</span>
         <span class="skill-tag">Cortex XSOAR</span>
         <span class="skill-tag">Defender XDR</span>
+        <span class="skill-tag">Microsoft Sentinel</span>
         <span class="skill-tag">Vectra AI (NDR)</span>
       </div>
     </div>
@@ -120,18 +121,20 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
           <a href="https://www.consulta.com.tr/tr/" class="exp-company" target="_blank">@ Consulta</a>
         </div>
         <div class="exp-meta">
-          <span class="exp-date">Yaz 2023</span>
+          <span class="exp-date">Temmuz 2023 – Eylül 2023 · 3 ay</span>
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> İstanbul, Türkiye · Yerinde</span>
         </div>
       </div>
       <ul class="exp-details">
-        <li>Kurumsal BT altyapısı, Active Directory kullanıcı/grup yönetimi ve sistem güvenliği operasyonlarında görev aldım.</li>
-        <li>Linux sunucu sıkılaştırma, M365/Exchange yönetimi ve teknik yardım masası (helpdesk) sorun giderme süreçlerini yürüttüm.</li>
+        <li>BT altyapısı ve Active Directory kullanıcı/grup yönetimi süreçlerine destek verdim.</li>
+        <li>Sunucu sıkılaştırma, M365/Exchange yönetimi ve teknik yardım masası (helpdesk) sorun giderme çalışmalarını yürüttüm.</li>
+        <li>Kurum içi güvenlik farkındalığı çalışmalarına ve operasyonel BT dokümantasyonuna katkı sağladım.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Active Directory</span>
         <span class="skill-tag">Microsoft 365</span>
-        <span class="skill-tag">Linux Sıkılaştırma</span>
+        <span class="skill-tag">Sunucu Sıkılaştırma</span>
+        <span class="skill-tag">Yardım Masası (Helpdesk)</span>
         <span class="skill-tag">Sistem Yönetimi</span>
       </div>
     </div>
@@ -142,22 +145,21 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
     <div class="experience-card">
       <div class="exp-header">
         <div class="exp-title-group">
-          <h3>Siber Güvenlik Stajyeri (Cyber Security Intern)</h3>
+          <h3>Siber Güvenlik Stajyeri</h3>
           <span class="exp-company">@ BG-Tek Bilgi Güvenliği Teknolojileri</span>
         </div>
         <div class="exp-meta">
-          <span class="exp-date">Yaz 2022</span>
+          <span class="exp-date">Temmuz 2022 – Ağustos 2022 · 2 ay</span>
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Bursa, Türkiye · Yerinde</span>
         </div>
       </div>
       <ul class="exp-details">
-        <li>Laboratuvar ve müşteri test ortamlarında web uygulamaları ve kurumsal ağ sistemleri üzerinde sızma testleri gerçekleştirdim.</li>
-        <li>Otomatik zafiyet değerlendirmeleri, açık doğrulama (exploit verification) ve teknik güvenlik raporlama süreçlerine destek verdim.</li>
+        <li>Kontrollü laboratuvar ortamlarında simüle web uygulaması ve ağ sızma testlerine destek verdim.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Web Uygulama Güvenliği</span>
         <span class="skill-tag">Ağ Güvenliği</span>
-        <span class="skill-tag">Sızma Testi</span>
+        <span class="skill-tag">Laboratuvar Testleri</span>
         <span class="skill-tag">Zafiyet Değerlendirmesi</span>
       </div>
     </div>
