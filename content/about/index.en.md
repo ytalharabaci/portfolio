@@ -6,12 +6,11 @@ description: "Security Engineer focused on bridging the gap between enterprise s
 weight: 2
 ---
 
-Hi, I'm Yusuf Talha. I’m a **Security Engineer** with a computer engineering background, focused on bridging the gap between enterprise security operations and resilient systems engineering.
+I am a **Cyber Security Specialist** with a Computer Engineering background and 3+ years of hands-on experience across enterprise MDR (60+ clients), banking CSIRT (Garanti BBVA Teknoloji), and security consulting.
 
-My background spans multi-tenant MDR and CSIRT operations, defending critical infrastructures against multi-stage threats. Rather than just reacting to alerts, I approach defense with a software engineer’s mindset: designing automated detection pipelines and building custom security tooling in Go and Python.
+My background covers the full lifecycle of enterprise cyber defense—from real-time alert triage, deep-dive log analysis, and incident containment to deploying and managing enterprise security platforms (SIEM, EDR/XDR, NDR). Having worked across both high-volume SOC/CSIRT operations and technical consulting, I bridge daily security operations with hands-on security engineering: fine-tuning detection rules, conducting vulnerability assessments and penetration tests, hardening Linux/Windows and container infrastructures, and automating repetitive workflows with Python and Go.
 
-I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Karabuk University, having completed all coursework.
-
+I have completed all coursework for my **M.Sc. in Software Engineering** at Karabuk University.
 ---
 
 ## Experience
@@ -67,7 +66,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
       <ul class="exp-details">
         <li>Monitored and investigated high-volume banking telemetry across centralized <strong>Splunk SIEM</strong> and multi-vendor security controls (EDR, WAF, Firewall, Proxy, Active Directory).</li>
         <li>Engineered and fine-tuned <strong>Splunk correlation rules</strong> across diverse log sources to eliminate false positives and increase detection fidelity.</li>
-        <li>Designed automated <strong>SOAR playbooks</strong> and developed proactive <strong>threat hunting scenarios</strong> mapped to MITRE ATT&CK to uncover stealthy persistence and lateral movement.</li>
+        <li>Assisted in designing automated <strong>SOAR playbooks</strong> and developing proactive <strong>threat hunting scenarios</strong> mapped to MITRE ATT&CK to uncover stealthy persistence and lateral movement.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Splunk SIEM</span>
@@ -90,13 +89,13 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
           <a href="https://adeo.com.tr/" class="exp-company" target="_blank">@ ADEO Cyber Security</a>
         </div>
         <div class="exp-meta">
-          <span class="exp-date">Oct 2023 – Oct 2024 · 1 yr 1 mo</span>
+          <span class="exp-date">2023 – 2024</span>
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Ankara, Turkey · Hybrid</span>
         </div>
       </div>
       <ul class="exp-details">
         <li>Delivered 24/7 Managed Detection and Response (MDR) across <strong>60+ enterprise client environments</strong>, performing real-time triage, investigation, and containment of cyber attacks.</li>
-        <li>Operated and fine-tuned a multi-vendor security stack including <strong>CrowdStrike Falcon, SentinelOne, Palo Alto Cortex XDR, Microsoft Defender XDR, Microsoft Sentinel, and Vectra AI (NDR)</strong>.</li>
+        <li>Operated and fine-tuned a multi-vendor security stack including <strong>CrowdStrike Falcon, SentinelOne, Palo Alto Cortex XDR, Microsoft Defender XDR, and Vectra AI (NDR)</strong>.</li>
         <li>Supported building automated response playbooks in <strong>Cortex XSOAR</strong> and performed continuous EDR/NDR rule tuning to reduce alert fatigue across customer fleets.</li>
       </ul>
       <div class="exp-skills">
@@ -106,7 +105,6 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
         <span class="skill-tag">Cortex XDR</span>
         <span class="skill-tag">Cortex XSOAR</span>
         <span class="skill-tag">Defender XDR</span>
-        <span class="skill-tag">Microsoft Sentinel</span>
         <span class="skill-tag">Vectra AI (NDR)</span>
       </div>
     </div>
@@ -121,7 +119,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
           <a href="https://www.consulta.com.tr/en/" class="exp-company" target="_blank">@ Consulta</a>
         </div>
         <div class="exp-meta">
-          <span class="exp-date">Jul 2023 – Sep 2023 · 3 mos</span>
+          <span class="exp-date">Summer 2023</span>
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Istanbul, Turkey · On-site</span>
         </div>
       </div>
@@ -149,12 +147,12 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
           <span class="exp-company">@ BG-Tek Bilgi Güvenliği Teknolojileri</span>
         </div>
         <div class="exp-meta">
-          <span class="exp-date">Jul 2022 – Aug 2022 · 2 mos</span>
+          <span class="exp-date">Summer 2022</span>
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Bursa, Turkey · On-site</span>
         </div>
       </div>
       <ul class="exp-details">
-        <li>Assisted in simulated web application and network penetration testing across controlled lab environments.</li>
+        <li>Executed web and network security test scenarios across lab environments.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Web Application Security</span>

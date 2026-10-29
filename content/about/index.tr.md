@@ -6,11 +6,11 @@ description: "Kurumsal güvenlik operasyonları ve dayanıklı sistem mühendisl
 weight: 2
 ---
 
-Merhaba, ben Yusuf Talha. Bilgisayar mühendisliği temeline sahip, kurumsal güvenlik operasyonları ile dayanıklı sistem mühendisliğini bir araya getiren bir **Güvenlik Mühendisiyim (Security Engineer)**.
+Bilgisayar mühendisliği temeline sahip, kurumsal MDR (60+ müşteri), bankacılık CSIRT (Garanti BBVA Teknoloji) ve siber güvenlik danışmanlığı alanlarında 3 yılı aşkın saha deneyimi bulunan bir **Siber Güvenlik Uzmanıyım**.
 
-Deneyimim, 60'tan fazla kurumsal müşteriye hizmet veren merkezi MDR ve kritik altyapıları savunan CSIRT operasyonlarını kapsıyor. Güvenliğe yalnızca gelen alarmları reaktif karşılayan bir gözle değil, bir yazılım mühendisi refleksiyle yaklaşıyorum. Tespit süreçlerini otomatikleştiriyor, Go ve Python ile ihtiyaca özel güvenlik araçları geliştiriyorum.
+Deneyimim kurumsal siber savunmanın tüm yaşam döngüsünü kapsıyor. Gerçek zamanlı alarm triyajı, derinlemesine log analizi ve olay anında yayılım engellemeden (containment) kurumsal güvenlik platformlarının (SIEM, EDR/XDR, NDR) kurulum ve yönetimine kadar geniş bir alanda görev aldım. Yüksek hacimli SOC/CSIRT operasyonları ile teknik danışmanlık rollerinde bulunarak günlük operasyonları doğrudan mühendislik bakış açısıyla birleştiriyorum. Tespit kurallarını optimize ediyor, zafiyet değerlendirmeleri ve sızma testleri yürütüyor, Linux/Windows ile konteyner altyapılarını sıkılaştırıyor, tekrarlayan iş akışlarını Python ve Go ile otomatikleştiriyorum.
 
-Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında ders dönemini tamamladım, tez çalışmalarımı sürdürüyorum.
+Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında ders dönemini tamamladım, tez çalışmalarımı sürdürüyorum. 
 
 ---
 
@@ -67,7 +67,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
       <ul class="exp-details">
         <li>Merkezi <strong>Splunk SIEM</strong> ve çoklu güvenlik katmanları (EDR, WAF, Firewall, Proxy, Active Directory) üzerinden akan yüksek hacimli bankacılık telemetrisini izleyip şüpheli olayları inceledim.</li>
         <li>Farklı log kaynakları için <strong>Splunk korelasyon kuralları</strong> geliştirip ince ayarlarını (tuning) yaparak yanlış alarmları eledim ve tespit doğruluğunu artırdım.</li>
-        <li>Otomatik <strong>SOAR playbook'ları</strong> kurguladım ve kritik altyapıda sinsi kalıcılık ile yanal hareketleri ortaya çıkarmak için MITRE ATT&CK odaklı proaktif <strong>tehdit avcılığı (threat hunting) senaryoları</strong> geliştirdim.</li>
+        <li>Otomatik <strong>SOAR playbook'ları</strong> kurgulanmasına ve kritik altyapıda sinsi kalıcılık ile yanal hareketleri ortaya çıkarmak için MITRE ATT&CK odaklı proaktif <strong>tehdit avcılığı (threat hunting) senaryoları</strong> geliştirilmesine destek verdim.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Splunk SIEM</span>
@@ -90,13 +90,13 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
           <a href="https://adeo.com.tr/" class="exp-company" target="_blank">@ ADEO Siber Güvenlik</a>
         </div>
         <div class="exp-meta">
-          <span class="exp-date">Ekim 2023 – Ekim 2024 · 1 yıl 1 ay</span>
+          <span class="exp-date">2023 – 2024</span>
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Ankara, Türkiye · Hibrit</span>
         </div>
       </div>
       <ul class="exp-details">
         <li><strong>60'tan fazla kurumsal müşteriye</strong> 7/24 Yönetilen Tespit ve Müdahale (MDR) hizmeti vererek siber saldırıların gerçek zamanlı triyajını, derinlemesine analizini ve yayılım engellemesini (containment) gerçekleştirdim.</li>
-        <li><strong>CrowdStrike Falcon, SentinelOne, Cortex XDR, Defender XDR, Microsoft Sentinel ve Vectra AI (NDR)</strong> dahil olmak üzere çok üreticili güvenlik yığınını aktif olarak yönettim ve optimize ettim.</li>
+        <li><strong>CrowdStrike Falcon, SentinelOne, Cortex XDR, Defender XDR ve Vectra AI (NDR)</strong> dahil olmak üzere çok üreticili güvenlik yığınını aktif olarak yönettim ve optimize ettim.</li>
         <li><strong>Cortex XSOAR</strong> üzerinde otomatik müdahale iş akışları (playbook) geliştirilmesine destek verdim ve alarm yorgunluğunu azaltmak için müşteri ortamlarında sürekli EDR ve NDR kural optimizasyonu yürüttüm.</li>
       </ul>
       <div class="exp-skills">
@@ -106,7 +106,6 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
         <span class="skill-tag">Cortex XDR</span>
         <span class="skill-tag">Cortex XSOAR</span>
         <span class="skill-tag">Defender XDR</span>
-        <span class="skill-tag">Microsoft Sentinel</span>
         <span class="skill-tag">Vectra AI (NDR)</span>
       </div>
     </div>
@@ -121,7 +120,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
           <a href="https://www.consulta.com.tr/tr/" class="exp-company" target="_blank">@ Consulta</a>
         </div>
         <div class="exp-meta">
-          <span class="exp-date">Temmuz 2023 – Eylül 2023 · 3 ay</span>
+          <span class="exp-date">2023 Yaz</span>
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> İstanbul, Türkiye · Yerinde</span>
         </div>
       </div>
@@ -149,12 +148,12 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
           <span class="exp-company">@ BG-Tek Bilgi Güvenliği Teknolojileri</span>
         </div>
         <div class="exp-meta">
-          <span class="exp-date">Temmuz 2022 – Ağustos 2022 · 2 ay</span>
+          <span class="exp-date">2022 Yaz</span>
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Bursa, Türkiye · Yerinde</span>
         </div>
       </div>
       <ul class="exp-details">
-        <li>Kontrollü laboratuvar ortamlarında simüle web uygulaması ve ağ sızma testlerine destek verdim.</li>
+        <li>Laboratuvar ortamında web ve ağ güvenliği test senaryolarını uyguladım.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Web Uygulama Güvenliği</span>
