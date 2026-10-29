@@ -8,7 +8,7 @@ weight: 2
 
 Merhaba, ben Yusuf Talha. Bilgisayar mühendisliği geçmişine sahip, kurumsal güvenlik operasyonları ile dayanıklı sistem mühendisliği arasındaki köprüyü kurmaya odaklanan bir **Güvenlik Mühendisiyim (Security Engineer)**.
 
-Deneyimim çok kiracılı kurumsal MDR (60+ müşteri) ve yüksek erişilebilirlikli bankacılık CSIRT ortamlarını kapsamakta; kritik altyapılarda tehdit tespiti ve olay müdahale süreçlerini yönetmekteyim. Yalnızca alarmlara reaktif tepki vermek yerine, savunmaya bir yazılım mühendisi bakış açısıyla yaklaşıyorum: otomatik tespit ardışık düzenleri (pipelines) kuruyor, bulut tabanlı iş yüklerini (Kubernetes ve Docker) sıkılaştırıyor ve Go ile Python kullanarak özel güvenlik araçları geliştiriyorum.
+Deneyimim çok kiracılı kurumsal MDR (60+ müşteri) ve yüksek erişilebilirlikli bankacılık CSIRT ortamlarını kapsıyor. Kritik altyapılarda tehdit tespiti ve olay müdahale süreçlerini yönetiyorum. Yalnızca alarmlara reaktif tepki vermek yerine, savunmaya bir yazılım mühendisi bakış açısıyla yaklaşıyorum: otomatik tespit ardışık düzenleri (pipelines) kuruyor, bulut tabanlı iş yüklerini (Kubernetes ve Docker) sıkılaştırıyor ve Go ile Python kullanarak özel güvenlik araçları geliştiriyorum.
 
 Bunun yanı sıra Karabük Üniversitesi'nde **Yazılım Mühendisliği Yüksek Lisans** eğitimime devam ediyor, araştırmalarımı açık kaynaklı yazılım tedarik zinciri güvenliği ve otomatik tehdit modellemesi üzerine yoğunlaştırıyorum. Aynı zamanda pratik SecOps ve Ağ Savunması bilgisini paylaşmak amacıyla açık kaynaklı teknik web kitapları ([ytalharabaci.dev](https://ytalharabaci.dev)) yazıyorum.
 
@@ -76,7 +76,7 @@ Ders dönemini tamamladım (tez aşaması) ve **tam zamanlı Güvenlik Mühendis
       <ul class="exp-details">
         <li>Merkezi <strong>Splunk SIEM</strong> ve çoklu güvenlik katmanları (EDR, WAF, Firewall, Proxy, Active Directory) üzerinden yüksek hacimli bankacılık telemetrisini izledim ve inceledim.</li>
         <li>Farklı log kaynakları genelinde <strong>Splunk korelasyon kuralları</strong> geliştirip ince ayarlarını (tuning) yaparak yanlış alarmları eledim ve tespit kalitesini artırdım.</li>
-        <li>Otomatik <strong>SOAR playbook'ları</strong> tasarladım; kritik altyapı genelinde sinsi kalıcılık ve yanal hareketleri ortaya çıkarmak amacıyla MITRE ATT&CK ile eşlenmiş proaktif <strong>tehdit avcılığı (threat hunting) senaryoları</strong> geliştirdim.</li>
+        <li>Otomatik <strong>SOAR playbook'ları</strong> tasarladım ve kritik altyapı genelinde sinsi kalıcılık ile yanal hareketleri ortaya çıkarmak için MITRE ATT&CK ile eşlenmiş proaktif <strong>tehdit avcılığı (threat hunting) senaryoları</strong> geliştirdim.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Splunk SIEM</span>
