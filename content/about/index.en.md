@@ -34,7 +34,7 @@ I have completed all coursework for my **M.Sc. in Software Engineering** at Kara
       <ul class="exp-details">
         <li>Led end-to-end enterprise deployments, pre-sales technical PoCs, and architectural sizing for <strong>SentinelOne Singularity XDR</strong> and <strong>Kaspersky Next</strong> across corporate client environments.</li>
         <li>Conducted web application and network <strong>penetration testing</strong> alongside automated vulnerability assessments (OpenVAS, Nuclei, Nmap), delivering remediation roadmaps to client IT teams.</li>
-        <li>Managed post-deployment EDR/XDR policy tuning, alarm triage, and active incident containment while providing advanced troubleshooting and Linux/Windows server maintenance.</li>
+        <li>Managed post-deployment <strong>EDR/XDR policy tuning</strong>, alert triage, and active incident containment across Linux and Windows endpoints.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">SentinelOne Singularity XDR</span>

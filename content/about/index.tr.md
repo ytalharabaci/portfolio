@@ -35,7 +35,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
       <ul class="exp-details">
         <li>Kurumsal müşteri ortamlarında <strong>SentinelOne Singularity XDR</strong> ve <strong>Kaspersky Next</strong> için uçtan uca kurulum, teknik PoC (Proof-of-Concept) ve mimari boyutlandırma süreçlerini yönettim.</li>
         <li>Web uygulamaları ve ağ sistemleri üzerinde <strong>sızma testleri</strong> ile otomatik zafiyet değerlendirmeleri (OpenVAS, Nuclei, Nmap) yürüterek BT ekiplerine önceliklendirilmiş aksiyon planları sundum.</li>
-        <li>Kurulum sonrası EDR/XDR kural ve politika optimizasyonlarını, alarm triyajını ve olay anında yayılım engelleme (containment) adımlarını yönetirken ileri düzey sorun giderme ve Linux/Windows sunucu bakımı desteği sağladım.</li>
+        <li>Linux ve Windows uç noktalarında kurulum sonrası <strong>EDR/XDR politika optimizasyonlarını</strong>, alarm triyajını ve aktif yayılım engelleme (containment) süreçlerini yönettim.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">SentinelOne Singularity XDR</span>
