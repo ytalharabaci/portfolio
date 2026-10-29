@@ -23,8 +23,8 @@ export const SITE = {
   emails: EMAILS,
   /** Job-search status shown on the home and About pages; set to `null` to hide it. */
   availability: <Record<Lang, string> | null>{
-    tr: "Güvenlik Mühendisi rollerine açığım",
-    en: "Open to Security Engineer roles",
+    tr: "Tam zamanlı Güvenlik Mühendisi rollerine açık",
+    en: "Available for full-time Security Engineer roles",
   },
   /** Branded card used as default og:image and Person schema image. */
   ogImage: "/link-card.jpg",
