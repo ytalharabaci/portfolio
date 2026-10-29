@@ -24,7 +24,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
     <div class="experience-card">
       <div class="exp-header">
         <div class="exp-title-group">
-          <h3>Cyber Security Consultant (B2B Contract)</h3>
+          <h3>Cyber Security Consultant</h3>
           <a href="https://armabilisim.com.tr/" class="exp-company" target="_blank">@ Arma Bilisim</a>
         </div>
         <div class="exp-meta">
@@ -35,7 +35,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
       <ul class="exp-details">
         <li>Led end-to-end enterprise deployments, pre-sales technical PoCs, and architectural sizing for <strong>SentinelOne Singularity XDR</strong> and <strong>Kaspersky Next</strong> across corporate client environments.</li>
         <li>Conducted web application and network <strong>penetration testing</strong> alongside automated vulnerability assessments (OpenVAS, Nuclei, Nmap), delivering remediation roadmaps to client IT teams.</li>
-        <li>Managed post-deployment EDR/XDR policy tuning, alarm triage, and active incident containment while providing L3 troubleshooting and Linux/Windows server maintenance.</li>
+        <li>Managed post-deployment EDR/XDR policy tuning, alarm triage, and active incident containment while providing advanced troubleshooting and Linux/Windows server maintenance.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">SentinelOne Singularity XDR</span>

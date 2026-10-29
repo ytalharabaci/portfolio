@@ -24,7 +24,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
     <div class="experience-card">
       <div class="exp-header">
         <div class="exp-title-group">
-          <h3>Siber Güvenlik Danışmanı (B2B)</h3>
+          <h3>Siber Güvenlik Danışmanı</h3>
           <a href="https://armabilisim.com.tr/" class="exp-company" target="_blank">@ Arma Bilişim</a>
         </div>
         <div class="exp-meta">
@@ -35,7 +35,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
       <ul class="exp-details">
         <li>Kurumsal müşteri ortamlarında <strong>SentinelOne Singularity XDR</strong> ve <strong>Kaspersky Next</strong> için uçtan uca kurulum, teknik PoC (Proof-of-Concept) ve mimari boyutlandırma süreçlerini yönettim.</li>
         <li>Web uygulamaları ve ağ sistemleri üzerinde <strong>sızma testleri</strong> ile otomatik zafiyet değerlendirmeleri (OpenVAS, Nuclei, Nmap) yürüterek BT ekiplerine önceliklendirilmiş aksiyon planları sundum.</li>
-        <li>Kurulum sonrası EDR/XDR kural ve politika optimizasyonlarını, alarm triyajını ve olay anında yayılım engelleme (containment) adımlarını yönettim. L3 seviyesinde teknik sorun giderme ve sunucu sıkılaştırma desteği sağladım.</li>
+        <li>Kurulum sonrası EDR/XDR kural ve politika optimizasyonlarını, alarm triyajını ve olay anında yayılım engelleme (containment) adımlarını yönetirken ileri düzey sorun giderme ve Linux/Windows sunucu bakımı desteği sağladım.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">SentinelOne Singularity XDR</span>
