@@ -38,14 +38,14 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    name: { tr: "Vantage", en: "Vantage" },
+    name: { tr: "Phish & Discover", en: "Phish & Discover" },
     description: {
-      tr: "Gophish tabanlı, Go ile geliştirilmiş asenkron SecOps Hub platformu. ProjectDiscovery araçları (Nuclei, Subfinder) orkestrasyonu, Chisel ile ters L3 tünelleme üzerinden iç ağ taraması ve oltalama simülasyonu yönetimi sunar.",
-      en: "An asynchronous Go-based SecOps hub forked from Gophish that orchestrates ProjectDiscovery tools (Nuclei, Subfinder), runs internal network scans over Chisel-based reverse L3 tunnels, and manages phishing simulations.",
+      tr: "Gophish tabanlı, Go ile geliştirilmiş ofansif test ve oltalama simülasyon platformu. ProjectDiscovery araçları (Nuclei, Subfinder) orkestrasyonu, Chisel ile ters L3 tünelleme üzerinden iç ağ taraması ve oltalama simülasyonu yönetimi sunar.",
+      en: "An offensive testing and phishing simulation platform built in Go (forked from Gophish). Orchestrates ProjectDiscovery tools (Nuclei, Subfinder), runs internal network scans over Chisel-based reverse L3 tunnels, and manages phishing campaigns.",
     },
     icon: "crosshairs",
-    repo: "https://github.com/ytalharabaci/vantage",
-    tags: ["Go", "SecOps", "ProjectDiscovery", "Gophish", "L3 Tunneling"],
+    repo: "https://github.com/ytalharabaci/phish-and-discover",
+    tags: ["Go", "Offensive Security", "Phishing Simulation", "ProjectDiscovery", "L3 Tunneling"],
     category: "engineering",
   },
   {
