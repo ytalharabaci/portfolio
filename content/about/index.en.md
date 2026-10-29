@@ -96,7 +96,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
       </div>
       <ul class="exp-details">
         <li>Delivered 24/7 Managed Detection and Response (MDR) across <strong>60+ enterprise client environments</strong>, performing real-time triage, investigation, and containment of cyber attacks.</li>
-        <li>Operated and fine-tuned a multi-vendor security stack including <strong>CrowdStrike Falcon, SentinelOne, Palo Alto Cortex XDR, Microsoft Defender XDR, and Vectra AI (NDR)</strong>.</li>
+        <li>Operated and fine-tuned a multi-vendor security products including <strong>CrowdStrike Falcon, SentinelOne, Palo Alto Cortex XDR, Microsoft Defender XDR, and Vectra AI (NDR)</strong>.</li>
         <li>Built and maintained automated response playbooks in <strong>Cortex XSOAR</strong> and performed continuous EDR/NDR rule tuning to reduce alert fatigue across customer fleets.</li>
       </ul>
       <div class="exp-skills">
@@ -176,7 +176,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
       <h3>Detection Engineering & SecOps</h3>
       <ul class="skills-list">
         <li><strong>SIEM & SOAR Platforms:</strong> Splunk (SPL), Cortex XSOAR (Playbook Design), Elastic Stack and Wazuh with Sigma rules.</li>
-        <li><strong>EDR, XDR & NDR Stack:</strong> SentinelOne, CrowdStrike Falcon, Cortex XDR, Microsoft Defender XDR, Vectra AI (NDR), and Kaspersky Next.</li>
+        <li><strong>EDR & NDR :</strong> SentinelOne, CrowdStrike Falcon, Cortex XDR, Microsoft Defender XDR, Vectra AI (NDR), and Kaspersky Next.</li>
         <li><strong>Detection-as-Code & Tuning:</strong> Custom correlation rule engineering, false-positive reduction, and automated triage workflows.</li>
         <li><strong>Threat Hunting & DFIR:</strong> Hypothesis-driven threat hunting mapped to MITRE ATT&CK, root-cause analysis, and digital forensics.</li>
         <li><strong>Network Defense:</strong> Enterprise firewalls, deep packet inspection (DPI), Wireshark, Zeek, and network segmentation.</li>
@@ -238,7 +238,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
   - **SentinelOne Singularity Incident Responder** (Feb 2026 – Feb 2028)
   - **C1 Level Advanced English Proficiency** (Eaquals)
 - **Education:**
-  - **M.Sc. in Software Engineering** | Karabuk University (2025 – 2027) — *Thesis Research Stage: Open-Source Software Supply Chain Security & Automated Threat Modeling.*
+  - **M.Sc. in Software Engineering** | Karabuk University (2025 – 2027) — *Thesis Research Stage: Software Supply Chain Security*
   - **B.Sc. in Computer Engineering** | Bursa Technical University (2019 – 2024) — *GPA: 3.3 / 4.0.*
 
 ---
@@ -259,7 +259,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
         </div>
       </div>
       <ul class="exp-details">
-        <li>Led the BTU Informatics Community, expanding the organization to over 500 active members.</li>
+        <li>Led the BTU Informatics Community, expanding the organization to over 500 members.</li>
         <li>Organized technical workshops, industry webinars, and "Security Day" conferences as OWASP Student Representative.</li>
       </ul>
     </div>

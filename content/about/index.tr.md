@@ -96,7 +96,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
       </div>
       <ul class="exp-details">
         <li><strong>60'tan fazla kurumsal müşteriye</strong> 7/24 Yönetilen Tespit ve Müdahale (MDR) hizmeti vererek siber saldırıların gerçek zamanlı triyajını, derinlemesine analizini ve yayılım engellemesini (containment) gerçekleştirdim.</li>
-        <li><strong>CrowdStrike Falcon, SentinelOne, Cortex XDR, Defender XDR ve Vectra AI (NDR)</strong> dahil olmak üzere çok üreticili güvenlik yığınını aktif olarak yönettim ve optimize ettim.</li>
+        <li><strong>CrowdStrike Falcon, SentinelOne, Cortex XDR, Defender XDR ve Vectra AI (NDR)</strong> dahil olmak üzere çok kullanıcılı platformları aktif olarak yönettim ve optimize ettim.</li>
         <li><strong>Cortex XSOAR</strong> üzerinde otomatik müdahale iş akışları (playbook) geliştirdim ve alarm yorgunluğunu azaltmak için müşteri altyapılarında sürekli EDR ve NDR kural optimizasyonu yürüttüm.</li>
       </ul>
       <div class="exp-skills">
@@ -176,7 +176,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
       <h3>Detection Engineering & SecOps</h3>
       <ul class="skills-list">
         <li><strong>SIEM & SOAR Platformları:</strong> Splunk (SPL), Cortex XSOAR (Playbook Tasarımı), Elastic Stack ve Wazuh ile Sigma kuralları.</li>
-        <li><strong>EDR, XDR & NDR Yığını:</strong> SentinelOne, CrowdStrike Falcon, Cortex XDR, Microsoft Defender XDR, Vectra AI (NDR) ve Kaspersky Next.</li>
+        <li><strong>EDR & NDR:</strong> SentinelOne, CrowdStrike Falcon, Cortex XDR, Microsoft Defender XDR, Vectra AI (NDR) ve Kaspersky Next.</li>
         <li><strong>Detection-as-Code & Tuning:</strong> Özel korelasyon kuralı geliştirme, yanlış alarm (false-positive) azaltma ve otomatik triyaj iş akışları.</li>
         <li><strong>Threat Hunting & DFIR:</strong> MITRE ATT&CK tabanlı proaktif tehdit avcılığı, kök neden analizi ve dijital adli bilişim.</li>
         <li><strong>Ağ Savunması:</strong> Kurumsal güvenlik duvarları, derin paket inceleme (DPI), Wireshark, Zeek ve ağ segmentasyonu.</li>
@@ -238,7 +238,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
   - **SentinelOne Singularity Incident Responder** (Şubat 2026 – Şubat 2028)
   - **C1 Seviyesi İleri Düzey İngilizce Yetkinliği** (Eaquals)
 - **Eğitim:**
-  - **Yüksek Lisans, Yazılım Mühendisliği** | Karabük Üniversitesi (2025 – 2027) — *Tez Araştırması: Açık Kaynaklı Yazılım Tedarik Zinciri Güvenliği ve Otomatik Tehdit Modellemesi.*
+  - **Yüksek Lisans, Yazılım Mühendisliği** | Karabük Üniversitesi (2025 – 2027) — *Tez Araştırması: Yazılım Tedarik Zinciri Güvenliği*
   - **Lisans, Bilgisayar Mühendisliği** | Bursa Teknik Üniversitesi (2019 – 2024) — *GPA: 3.3 / 4.0.*
 
 ---
@@ -259,7 +259,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
         </div>
       </div>
       <ul class="exp-details">
-        <li>Bursa Teknik Üniversitesi Bilişim Topluluğu'nda başkanlık yaparak topluluğu 500'ü aşkın aktif üyeye ulaştırdım.</li>
+        <li>Bursa Teknik Üniversitesi Bilişim Topluluğu'nda başkanlık yaparak topluluğu 500'ü aşkın üyeye ulaştırdım.</li>
         <li>OWASP Öğrenci Temsilcisi olarak kampüste teknik atölyeler, sektör seminerleri ve "Security Day" konferansları organize ettim.</li>
       </ul>
     </div>
@@ -270,7 +270,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
     <div class="experience-card">
       <div class="exp-header">
         <div class="exp-title-group">
-          <h3>Çekirdek Ekip Üyesi</h3>
+          <h3>Ekip Üyesi</h3>
           <a href="https://pwnlab.me/" class="exp-company" target="_blank">@ PwnLab.Me</a>
         </div>
         <div class="exp-meta">
