@@ -10,7 +10,7 @@ Merhaba, ben Yusuf Talha. Bilgisayar mühendisliği geçmişine sahip, kurumsal 
 
 Deneyimim çok kiracılı kurumsal MDR ve yüksek erişilebilirlikli bankacılık CSIRT operasyonlarını kapsıyor. Yalnızca alarmlara reaktif tepki vermek yerine, savunmaya bir yazılım mühendisi bakış açısıyla yaklaşıyorum: otomatik tespit ardışık düzenleri (pipelines) kuruyor, bulut tabanlı iş yüklerini (Kubernetes ve Docker) sıkılaştırıyor ve Go ile Python kullanarak özel güvenlik araçları geliştiriyorum.
 
-Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında ders dönemini tamamladım (tez aşaması) ve **tam zamanlı Güvenlik Mühendisi, Detection Engineer ve SecOps rolleri için çalışmaya uygunum**.
+Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında ders dönemini tamamladım, tez aşamasında çalışmalarıma devam ediyorum.
 
 ---
 
