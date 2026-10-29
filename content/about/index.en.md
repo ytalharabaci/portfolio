@@ -10,7 +10,6 @@ I am a **Cyber Security Specialist** with a Computer Engineering background and 
 
 My background covers the full lifecycle of enterprise cyber defense—from real-time alert triage, deep-dive log analysis, and incident containment to deploying and managing enterprise security platforms (SIEM, EDR/XDR, NDR). Having worked across both high-volume SOC/CSIRT operations and technical consulting, I bridge daily security operations with hands-on security engineering: fine-tuning detection rules, conducting vulnerability assessments and penetration tests, hardening Linux/Windows and container infrastructures, and automating repetitive workflows with Python and Go.
 
-I have completed all coursework for my **M.Sc. in Software Engineering** at Karabuk University.
 ---
 
 ## Experience
