@@ -8,7 +8,7 @@ weight: 2
 
 Merhaba, ben Yusuf Talha. Bilgisayar mühendisliği temeline sahip, kurumsal güvenlik operasyonları ile dayanıklı sistem mühendisliğini bir araya getiren bir **Güvenlik Mühendisiyim (Security Engineer)**.
 
-Deneyimim, 60'tan fazla kurumsal müşteriye hizmet veren merkezi MDR ve kritik altyapıları savunan CSIRT operasyonlarını kapsıyor. Güvenliğe yalnızca gelen alarmları reaktif karşılayan bir gözle değil, bir yazılım mühendisi refleksiyle yaklaşıyorum. Tespit süreçlerini otomatikleştiriyor, bulut ve konteyner altyapılarını (Kubernetes ve Docker) sıkılaştırıyor, Go ve Python ile ihtiyaca özel güvenlik araçları geliştiriyorum.
+Deneyimim, 60'tan fazla kurumsal müşteriye hizmet veren merkezi MDR ve kritik altyapıları savunan CSIRT operasyonlarını kapsıyor. Güvenliğe yalnızca gelen alarmları reaktif karşılayan bir gözle değil, bir yazılım mühendisi refleksiyle yaklaşıyorum. Tespit süreçlerini otomatikleştiriyor, Go ve Python ile ihtiyaca özel güvenlik araçları geliştiriyorum.
 
 Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında ders dönemini tamamladım, tez çalışmalarımı sürdürüyorum.
 

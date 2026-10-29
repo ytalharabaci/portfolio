@@ -8,7 +8,7 @@ weight: 2
 
 Hi, I'm Yusuf Talha. I’m a **Security Engineer** with a computer engineering background, focused on bridging the gap between enterprise security operations and resilient systems engineering.
 
-My background spans multi-tenant MDR and CSIRT operations, defending critical infrastructures against multi-stage threats. Rather than just reacting to alerts, I approach defense with a software engineer’s mindset: designing automated detection pipelines, hardening cloud-native workloads (Kubernetes & Docker), and building custom security tooling in Go and Python.
+My background spans multi-tenant MDR and CSIRT operations, defending critical infrastructures against multi-stage threats. Rather than just reacting to alerts, I approach defense with a software engineer’s mindset: designing automated detection pipelines and building custom security tooling in Go and Python.
 
 I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Karabuk University, having completed all coursework.
 
