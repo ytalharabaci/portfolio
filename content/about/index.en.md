@@ -235,7 +235,7 @@ My background covers the full lifecycle of enterprise cyber defense—from real-
 - **Certifications:**
   - **SentinelOne Singularity Security Administrator** (Feb 2026 – Feb 2028)
   - **SentinelOne Singularity Incident Responder** (Feb 2026 – Feb 2028)
-  - **C1 Level Advanced English Proficiency** (Eaquals)
+  - **B2 Level English Proficiency** (Eaquals)
 - **Education:**
   - **M.Sc. in Software Engineering** | Karabuk University (2025 – 2027) — *Thesis Research Stage: Software Supply Chain Security*
   - **B.Sc. in Computer Engineering** | Bursa Technical University (2019 – 2024) — *GPA: 3.3 / 4.0.*

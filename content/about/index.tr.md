@@ -235,7 +235,7 @@ Deneyimim kurumsal siber savunmanın tüm yaşam döngüsünü kapsıyor. Gerçe
 - **Sertifikalar:**
   - **SentinelOne Singularity Security Administrator** (Şubat 2026 – Şubat 2028)
   - **SentinelOne Singularity Incident Responder** (Şubat 2026 – Şubat 2028)
-  - **C1 Seviyesi İleri Düzey İngilizce Yetkinliği** (Eaquals)
+  - **B2 Seviyesi İngilizce Yetkinliği** (Eaquals)
 - **Eğitim:**
   - **Yüksek Lisans, Yazılım Mühendisliği** | Karabük Üniversitesi (2025 – 2027) — *Tez Araştırması: Yazılım Tedarik Zinciri Güvenliği*
   - **Lisans, Bilgisayar Mühendisliği** | Bursa Teknik Üniversitesi (2019 – 2024) — *GPA: 3.3 / 4.0.*
