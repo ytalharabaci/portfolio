@@ -94,7 +94,7 @@ My background covers the full lifecycle of enterprise cyber defense—from real-
       </div>
       <ul class="exp-details">
         <li>Delivered 24/7 Managed Detection and Response (MDR) across <strong>60+ enterprise client environments</strong>, performing real-time triage, investigation, and containment of cyber attacks.</li>
-        <li>Operated and fine-tuned a multi-vendor security stack including <strong>CrowdStrike Falcon, SentinelOne, Palo Alto Cortex XDR, Microsoft Defender XDR, and Vectra AI (NDR)</strong>.</li>
+        <li>Operated and fine-tuned a multi-vendor security stack including <strong>CrowdStrike Falcon, SentinelOne, Palo Alto Cortex XDR, Microsoft Defender XDR, and Vectra AI</strong>.</li>
         <li>Supported building automated response playbooks in <strong>Cortex XSOAR</strong> and performed continuous EDR/NDR rule tuning to reduce alert fatigue across customer fleets.</li>
       </ul>
       <div class="exp-skills">
@@ -175,7 +175,7 @@ My background covers the full lifecycle of enterprise cyber defense—from real-
       <h3>Detection Engineering & SecOps</h3>
       <ul class="skills-list">
         <li><strong>SIEM & SOAR Platforms:</strong> Splunk (SPL), Cortex XSOAR (Playbook Design), Elastic Stack and Wazuh with Sigma rules.</li>
-        <li><strong>EDR & NDR :</strong> SentinelOne, CrowdStrike Falcon, Cortex XDR, Microsoft Defender XDR, Vectra AI (NDR), and Kaspersky Next.</li>
+        <li><strong>EDR & NDR :</strong> SentinelOne, CrowdStrike Falcon, Cortex XDR, Microsoft Defender XDR, Vectra AI, and Kaspersky Next.</li>
         <li><strong>Detection-as-Code & Tuning:</strong> Custom correlation rule engineering, false-positive reduction, and automated triage workflows.</li>
         <li><strong>Threat Hunting & DFIR:</strong> Hypothesis-driven threat hunting mapped to MITRE ATT&CK, root-cause analysis, and digital forensics.</li>
         <li><strong>Network Defense:</strong> Enterprise firewalls, deep packet inspection (DPI), Wireshark, Zeek, and network segmentation.</li>

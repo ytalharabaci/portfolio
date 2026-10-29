@@ -94,7 +94,7 @@ Deneyimim kurumsal siber savunmanın tüm yaşam döngüsünü kapsıyor. Gerçe
       </div>
       <ul class="exp-details">
         <li><strong>60'tan fazla kurumsal müşteriye</strong> 7/24 Yönetilen Tespit ve Müdahale (MDR) hizmeti vererek siber saldırıların gerçek zamanlı triyajını, derinlemesine analizini ve yayılım engellemesini (containment) gerçekleştirdim.</li>
-        <li><strong>CrowdStrike Falcon, SentinelOne, Cortex XDR, Defender XDR ve Vectra AI (NDR)</strong> dahil olmak üzere çok üreticili güvenlik yığınını aktif olarak yönettim ve optimize ettim.</li>
+        <li><strong>CrowdStrike Falcon, SentinelOne, Cortex XDR, Defender XDR ve Vectra AI</strong> dahil olmak üzere çok üreticili güvenlik yığınını aktif olarak yönettim ve optimize ettim.</li>
         <li><strong>Cortex XSOAR</strong> üzerinde otomatik müdahale iş akışları (playbook) geliştirilmesine destek verdim ve alarm yorgunluğunu azaltmak için müşteri ortamlarında sürekli EDR ve NDR kural optimizasyonu yürüttüm.</li>
       </ul>
       <div class="exp-skills">
@@ -104,7 +104,7 @@ Deneyimim kurumsal siber savunmanın tüm yaşam döngüsünü kapsıyor. Gerçe
         <span class="skill-tag">Cortex XDR</span>
         <span class="skill-tag">Cortex XSOAR</span>
         <span class="skill-tag">Defender XDR</span>
-        <span class="skill-tag">Vectra AI (NDR)</span>
+        <span class="skill-tag">Vectra AI</span>
       </div>
     </div>
   </div>
@@ -175,7 +175,7 @@ Deneyimim kurumsal siber savunmanın tüm yaşam döngüsünü kapsıyor. Gerçe
       <h3>Detection Engineering & SecOps</h3>
       <ul class="skills-list">
         <li><strong>SIEM & SOAR Platformları:</strong> Splunk (SPL), Cortex XSOAR (Playbook Tasarımı), Elastic Stack ve Wazuh ile Sigma kuralları.</li>
-        <li><strong>EDR & NDR:</strong> SentinelOne, CrowdStrike Falcon, Cortex XDR, Microsoft Defender XDR, Vectra AI (NDR) ve Kaspersky Next.</li>
+        <li><strong>EDR & NDR:</strong> SentinelOne, CrowdStrike Falcon, Cortex XDR, Microsoft Defender XDR, Vectra AI ve Kaspersky Next.</li>
         <li><strong>Detection-as-Code & Tuning:</strong> Özel korelasyon kuralı geliştirme, yanlış alarm (false-positive) azaltma ve otomatik triyaj iş akışları.</li>
         <li><strong>Threat Hunting & DFIR:</strong> MITRE ATT&CK tabanlı proaktif tehdit avcılığı, kök neden analizi ve dijital adli bilişim.</li>
         <li><strong>Ağ Savunması:</strong> Kurumsal güvenlik duvarları, derin paket inceleme (DPI), Wireshark, Zeek ve ağ segmentasyonu.</li>
