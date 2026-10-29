@@ -2,15 +2,15 @@
 title: "Hakkımda"
 date: 2026-03-16
 dateModified: 2026-10-29
-description: "Kurumsal güvenlik operasyonları ile dayanıklı sistem mühendisliği arasındaki köprüyü kurmaya odaklanan Güvenlik Mühendisi."
+description: "Kurumsal güvenlik operasyonları ve dayanıklı sistem mühendisliği odaklı Güvenlik Mühendisi."
 weight: 2
 ---
 
-Merhaba, ben Yusuf Talha. Bilgisayar mühendisliği geçmişine sahip, kurumsal güvenlik operasyonları ile dayanıklı sistem mühendisliği arasındaki köprüyü kurmaya odaklanan bir **Güvenlik Mühendisiyim (Security Engineer)**.
+Merhaba, ben Yusuf Talha. Bilgisayar mühendisliği temeline sahip, kurumsal güvenlik operasyonları ile dayanıklı sistem mühendisliğini bir araya getiren bir **Güvenlik Mühendisiyim (Security Engineer)**.
 
-Deneyimim çok kiracılı kurumsal MDR ve yüksek erişilebilirlikli bankacılık CSIRT operasyonlarını kapsıyor. Yalnızca alarmlara reaktif tepki vermek yerine, savunmaya bir yazılım mühendisi bakış açısıyla yaklaşıyorum: otomatik tespit ardışık düzenleri (pipelines) kuruyor, bulut tabanlı iş yüklerini (Kubernetes ve Docker) sıkılaştırıyor ve Go ile Python kullanarak özel güvenlik araçları geliştiriyorum.
+Deneyimim, 60'tan fazla kurumsal müşteriye hizmet veren merkezi MDR ve kritik bankacılık altyapılarını savunan CSIRT operasyonlarını kapsıyor. Güvenliğe yalnızca gelen alarmları reaktif karşılayan bir gözle değil, bir yazılım mühendisi refleksiyle yaklaşıyorum. Tespit süreçlerini otomatikleştiriyor, bulut ve konteyner altyapılarını (Kubernetes ve Docker) sıkılaştırıyor, Go ve Python ile ihtiyaca özel güvenlik araçları geliştiriyorum.
 
-Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında ders dönemini tamamladım, tez aşamasında çalışmalarıma devam ediyorum.
+Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında ders dönemini tamamladım, tez çalışmalarımı sürdürüyorum.
 
 ---
 
@@ -24,7 +24,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
     <div class="experience-card">
       <div class="exp-header">
         <div class="exp-title-group">
-          <h3>Siber Güvenlik Danışmanı (B2B Sözleşmeli)</h3>
+          <h3>Siber Güvenlik Danışmanı (B2B)</h3>
           <a href="https://armabilisim.com.tr/" class="exp-company" target="_blank">@ Arma Bilişim</a>
         </div>
         <div class="exp-meta">
@@ -34,8 +34,8 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
       </div>
       <ul class="exp-details">
         <li>Kurumsal müşteri ortamlarında <strong>SentinelOne Singularity XDR</strong> ve <strong>Kaspersky Next</strong> için uçtan uca kurulum, teknik PoC (Proof-of-Concept) ve mimari boyutlandırma süreçlerini yönettim.</li>
-        <li>Web uygulamaları ve kurumsal ağ sistemleri üzerinde <strong>sızma testleri (penetration testing)</strong> ve otomatik zafiyet değerlendirmeleri (OpenVAS, Nuclei, Nmap) yürüterek BT ekiplerine aksiyon planları sundum.</li>
-        <li>Kurulum sonrası EDR/XDR politika optimizasyonlarını, alarm triyajını ve olay yayılımını engelleme (containment) adımlarını yönetirken L3 sorun giderme ve Linux/Windows sunucu sıkılaştırma desteği sağladım.</li>
+        <li>Web uygulamaları ve ağ sistemleri üzerinde <strong>sızma testleri</strong> ile otomatik zafiyet değerlendirmeleri (OpenVAS, Nuclei, Nmap) yürüterek BT ekiplerine önceliklendirilmiş aksiyon planları sundum.</li>
+        <li>Kurulum sonrası EDR/XDR kural ve politika optimizasyonlarını, alarm triyajını ve olay anında yayılım engelleme (containment) adımlarını yönettim. L3 seviyesinde teknik sorun giderme ve sunucu sıkılaştırma desteği sağladım.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">SentinelOne Singularity XDR</span>
@@ -55,7 +55,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
     <div class="experience-card">
       <div class="exp-header">
         <div class="exp-title-group">
-          <h3>Siber Güvenlik Uzmanı (Cyber Security Specialist)</h3>
+          <h3>Siber Güvenlik Uzmanı</h3>
           <a href="https://www.innova.com.tr/tr" class="exp-company" target="_blank">@ İnnova Bilişim</a>
         </div>
         <div class="exp-meta">
@@ -63,11 +63,11 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Uzaktan</span>
         </div>
       </div>
-      <p class="exp-intro" style="font-size: 0.9em; margin-bottom: 0.5rem; color: var(--text-muted, #64748b);">Garanti BBVA Teknoloji Siber Olay Müdahale Ekibi'ne (CSIRT) tam zamanlı dedike olarak kritik bankacılık altyapısının savunmasını yürüttüm.</p>
+      <p class="exp-intro" style="font-size: 0.9em; margin-bottom: 0.5rem; color: var(--text-muted, #64748b);">Garanti BBVA Teknoloji Siber Olay Müdahale Ekibi (CSIRT) bünyesinde tam zamanlı olarak kritik bankacılık altyapısının savunmasında görev aldım.</p>
       <ul class="exp-details">
-        <li>Merkezi <strong>Splunk SIEM</strong> ve çoklu güvenlik katmanları (EDR, WAF, Firewall, Proxy, Active Directory) üzerinden yüksek hacimli bankacılık telemetrisini izledim ve inceledim.</li>
-        <li>Farklı log kaynakları genelinde <strong>Splunk korelasyon kuralları</strong> geliştirip ince ayarlarını (tuning) yaparak yanlış alarmları eledim ve tespit kalitesini artırdım.</li>
-        <li>Otomatik <strong>SOAR playbook'ları</strong> tasarladım ve kritik altyapı genelinde sinsi kalıcılık ile yanal hareketleri ortaya çıkarmak için MITRE ATT&CK ile eşlenmiş proaktif <strong>tehdit avcılığı (threat hunting) senaryoları</strong> geliştirdim.</li>
+        <li>Merkezi <strong>Splunk SIEM</strong> ve çoklu güvenlik katmanları (EDR, WAF, Firewall, Proxy, Active Directory) üzerinden akan yüksek hacimli bankacılık telemetrisini izleyip şüpheli olayları inceledim.</li>
+        <li>Farklı log kaynakları için <strong>Splunk korelasyon kuralları</strong> geliştirip ince ayarlarını (tuning) yaparak yanlış alarmları eledim ve tespit doğruluğunu artırdım.</li>
+        <li>Otomatik <strong>SOAR playbook'ları</strong> kurguladım ve kritik altyapıda sinsi kalıcılık ile yanal hareketleri ortaya çıkarmak için MITRE ATT&CK odaklı proaktif <strong>tehdit avcılığı (threat hunting) senaryoları</strong> geliştirdim.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Splunk SIEM</span>
@@ -86,7 +86,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
     <div class="experience-card">
       <div class="exp-header">
         <div class="exp-title-group">
-          <h3>Siber Güvenlik Analisti (Cyber Security Analyst)</h3>
+          <h3>Siber Güvenlik Analisti</h3>
           <a href="https://adeo.com.tr/" class="exp-company" target="_blank">@ ADEO Siber Güvenlik</a>
         </div>
         <div class="exp-meta">
@@ -95,9 +95,9 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
         </div>
       </div>
       <ul class="exp-details">
-        <li><strong>60'tan fazla kurumsal müşteri ortamında</strong> 7/24 Yönetilen Tespit ve Müdahale (MDR) hizmeti sunarak siber saldırıların gerçek zamanlı triyajını, incelemesini ve yayılım engellemesini gerçekleştirdim.</li>
-        <li><strong>CrowdStrike Falcon, SentinelOne, Palo Alto Cortex XDR, Microsoft Defender XDR, Microsoft Sentinel ve Vectra AI (NDR)</strong> dahil olmak üzere çoklu üreticili güvenlik yığınını yönettim ve optimize ettim.</li>
-        <li><strong>Cortex XSOAR</strong> üzerinde otomatik müdahale iş akışları (playbook) geliştirdim ve alarm yorgunluğunu azaltmak için müşteri altyapılarında sürekli EDR/NDR kural optimizasyonu yürüttüm.</li>
+        <li><strong>60'tan fazla kurumsal müşteriye</strong> 7/24 Yönetilen Tespit ve Müdahale (MDR) hizmeti vererek siber saldırıların gerçek zamanlı triyajını, derinlemesine analizini ve yayılım engellemesini (containment) gerçekleştirdim.</li>
+        <li><strong>CrowdStrike Falcon, SentinelOne, Cortex XDR, Defender XDR, Microsoft Sentinel ve Vectra AI (NDR)</strong> dahil olmak üzere çok üreticili güvenlik yığınını aktif olarak yönettim ve optimize ettim.</li>
+        <li><strong>Cortex XSOAR</strong> üzerinde otomatik müdahale iş akışları (playbook) geliştirdim ve alarm yorgunluğunu azaltmak için müşteri altyapılarında sürekli EDR ve NDR kural optimizasyonu yürüttüm.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">MDR Operasyonları (60+ Müşteri)</span>
@@ -116,7 +116,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
     <div class="experience-card">
       <div class="exp-header">
         <div class="exp-title-group">
-          <h3>Bilgi Teknolojileri Stajyeri (Information Technology Intern)</h3>
+          <h3>Bilgi Teknolojileri Stajyeri</h3>
           <a href="https://www.consulta.com.tr/tr/" class="exp-company" target="_blank">@ Consulta</a>
         </div>
         <div class="exp-meta">
@@ -125,8 +125,8 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
         </div>
       </div>
       <ul class="exp-details">
-        <li>Kurumsal BT altyapısı, Active Directory kullanıcı/grup yönetimi ve sistem güvenliği operasyonlarını destekledim.</li>
-        <li>Linux sunucu sıkılaştırma, M365/Exchange yönetimi ve L1/L2 yardım masası (helpdesk) sorun giderme süreçlerini yürüttüm.</li>
+        <li>Kurumsal BT altyapısı, Active Directory kullanıcı/grup yönetimi ve sistem güvenliği operasyonlarında görev aldım.</li>
+        <li>Linux sunucu sıkılaştırma, M365/Exchange yönetimi ve teknik yardım masası (helpdesk) sorun giderme süreçlerini yürüttüm.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Active Directory</span>

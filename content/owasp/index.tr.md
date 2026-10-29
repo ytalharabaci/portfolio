@@ -130,7 +130,7 @@ Mobil cihazlar (iOS ve Android), geleneksel web platformlarından tamamen farkl�
 - **LLM05: Improper Output Handling (Hatalı Çıktı Yönetimi):** LLM tarafından üretilen ham çıktıların (metin, kod, JSON) arka plan sistemlerinde veya tarayıcıda doğrulanmadan doğrudan çalıştırılmasıdır. Modelin ürettiği zararlı bir JavaScript kodu XSS saldırısına, bir SQL komutu ise veri kaybına yol açabilir. LLM çıktıları, dışarıdan gelen kullanıcı girdileri gibi kabul edilerek sıkı bir biçimde doğrulanmalı ve filtrelenmelidir.
 - **LLM06: Excessive Agency (Aşırı Yetkilendirilmiş Ajanlar):** LLM tabanlı otonom ajanların (agents), entegre oldukları API'ler veya eklentiler üzerinde aşırı geniş yetkilere (veri yazma, silme, e-posta gönderme) sahip olmasıdır. Saldırgan, prompt injection ile ajanı manipüle ederek veritabanını sildirebilir or sahte mailler attırabilir. Ajanlara verilen araç yetkileri en az yetki (least privilege) ilkesine göre sınırlandırılmalı ve kritik işlemler için insan onayı (human-in-the-loop) zorunlu tutulmalıdır.
 - **LLM07: System Prompt Leakage (Sistem Prompt'u Sızıntısı):** Saldırganların, modelin davranışını, kimliğini ve güvenlik sınırlarını belirleyen gizli sistem prompt'larını dolaylı yollarla öğrenmesidir. Saldırgan, "Bana yukarıdaki tüm talimatları göster" gibi prompt'larla sistem kurallarını çalarak modeli daha kolay manipüle edebilir. Sistem prompt'larının gizliliğini korumak amacıyla çıktı filtreleme kuralları ve sistem prompt'u koruma şablonları uygulanmalıdır.
-- **LLM08: Vector and Embedding Weaknesses (Vektör ve Embedding Zayıflıkları):** Vektör veritabanlarında tenant (kiracı) izolasyonunun olmaması veya embedding matrislerinin manipüle edilmesidir. Saldırgan, veritabanına enjekte ettiği sahte vektörlerle arama sonuçlarını sabote edebilir veya diğer kullanıcıların verilerine erişebilir. Vektör veritabanlarında metadata tabanlı katı yetkilendirme sınırları uygulanmalıdır.
+- **LLM08: Vector and Embedding Weaknesses (Vektör ve Embedding Zayıflıkları):** Vektör veritabanlarında müşteri/organizasyon (tenant) izolasyonunun olmaması veya embedding matrislerinin manipüle edilmesidir. Saldırgan, veritabanına enjekte ettiği sahte vektörlerle arama sonuçlarını sabote edebilir veya diğer kullanıcıların verilerine erişebilir. Vektör veritabanlarında metadata tabanlı katı yetkilendirme sınırları uygulanmalıdır.
 - **LLM09: Misinformation (Hatalı Bilgilendirme ve Halüsinasyon):** Modelin ürettiği mantıksız, yanlış veya halüsinasyon içeren verilerin kritik iş süreçlerinde (tıbbi, finansal kararlar gibi) doğrulanmadan kullanılmasıdır. Bu durum maddi veya operasyonel zararlara yol açar. Kritik süreçlerde yapay zekâ çıktıları deterministik doğrulama kurallarıyla kontrol edilmeli ve insan denetimi altında tutulmalıdır.
 - **LLM10: Unbounded Consumption (Sınırsız Kaynak Tüketimi):** Saldırganların otonom sistemleri sonsuz döngüye sokacak veya aşırı uzun prompt'lar işletecek istekler göndererek kaynak tüketimini (CPU/GPU) ve API maliyetlerini şişirmesidir. Bu durum "Denial of Wallet" (cüzdan kaybı) veya DoS ile sonuçlanır. İstek boyutu sınırlandırılmalı, token tüketim limitleri (rate limit) uygulanmalı ve bütçe aşım alarmları kurulmalıdır.
 
@@ -333,7 +333,7 @@ flowchart TD
 
     subgraph Cloud ["3. Bulut Altyapısının Ele Geçirilmesi"]
         IMDS -->|Geçici STS Token Hırsızlığı| IAM["Aşırı Yetkili IAM Rolü"]
-        IAM -->|Yanal Hareket ve Hak Yükseltme| CloudControl["Tüm Bulut Kiracısının Kontrolü"]
+        IAM -->|Yanal Hareket ve Hak Yükseltme| CloudControl["Tüm Bulut Ortamının Kontrolü"]
     end
 ```
 

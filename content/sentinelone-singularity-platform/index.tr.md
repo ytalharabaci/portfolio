@@ -60,7 +60,7 @@ SentinelOne, riskin en aza indirilmesi için hem **Malicious** hem de **Suspicio
 
 ### Merkezi Yönetim Konsolu ve Ölçeklenebilirlik
 
-SentinelOne’ın merkezi yönetim konsolu, bulut tabanlı (SaaS) veya kurum içi (on-premise) olarak yapılandırılabilir. Çok kiracılı (multi-tenant) mimarisi sayesinde, farklı ekipler ve alt kurumlar için rol bazlı erişim kontrolleri (RBAC) tanımlanabilir. Konsol, 500.000'den fazla ajanı tek bir yönetim düzleminden yönetecek elastik bir altyapıya sahiptir.
+SentinelOne’ın merkezi yönetim konsolu, bulut tabanlı (SaaS) veya kurum içi (on-premise) olarak yapılandırılabilir. Çok organizasyonlu merkezi (multi-tenant) mimarisi sayesinde, farklı ekipler ve alt kurumlar için rol bazlı erişim kontrolleri (RBAC) tanımlanabilir. Konsol, 500.000'den fazla ajanı tek bir yönetim düzleminden yönetecek elastik bir altyapıya sahiptir.
 
 ---
 
