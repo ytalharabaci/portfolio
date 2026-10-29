@@ -8,7 +8,7 @@ weight: 2
 
 Hi, I'm Yusuf Talha. I’m a **Security Engineer** with a computer engineering background, focused on bridging the gap between enterprise security operations and resilient systems engineering.
 
-My background spans multi-tenant MDR and banking CSIRT operations, defending critical infrastructures against multi-stage threats. Rather than just reacting to alerts, I approach defense with a software engineer’s mindset: designing automated detection pipelines, hardening cloud-native workloads (Kubernetes & Docker), and building custom security tooling in Go and Python.
+My background spans multi-tenant MDR and CSIRT operations, defending critical infrastructures against multi-stage threats. Rather than just reacting to alerts, I approach defense with a software engineer’s mindset: designing automated detection pipelines, hardening cloud-native workloads (Kubernetes & Docker), and building custom security tooling in Go and Python.
 
 I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Karabuk University, having completed all coursework.
 
@@ -63,7 +63,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Remote</span>
         </div>
       </div>
-      <p class="exp-intro" style="font-size: 0.9em; margin-bottom: 0.5rem; color: var(--text-muted, #64748b);">Dedicated full-time to Garanti BBVA Technologies Cyber Security Incident Response Team (CSIRT), defending high-availability banking infrastructure.</p>
+      <p class="exp-intro" style="font-size: 0.9em; margin-bottom: 0.5rem; color: var(--text-muted, #64748b);">Dedicated full-time to Garanti BBVA Technologies Cyber Security Incident Response Team (CSIRT), defending high-availability infrastructure.</p>
       <ul class="exp-details">
         <li>Monitored and investigated high-volume banking telemetry across centralized <strong>Splunk SIEM</strong> and multi-vendor security controls (EDR, WAF, Firewall, Proxy, Active Directory).</li>
         <li>Engineered and fine-tuned <strong>Splunk correlation rules</strong> across diverse log sources to eliminate false positives and increase detection fidelity.</li>
@@ -71,7 +71,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Splunk SIEM</span>
-        <span class="skill-tag">Banking CSIRT</span>
+        <span class="skill-tag">CSIRT</span>
         <span class="skill-tag">Correlation Rule Tuning</span>
         <span class="skill-tag">SOAR Playbooks</span>
         <span class="skill-tag">Threat Hunting</span>
@@ -96,7 +96,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
       </div>
       <ul class="exp-details">
         <li>Delivered 24/7 Managed Detection and Response (MDR) across <strong>60+ enterprise client environments</strong>, performing real-time triage, investigation, and containment of cyber attacks.</li>
-        <li>Operated and fine-tuned a multi-vendor security stack including <strong>CrowdStrike Falcon, SentinelOne, Palo Alto Cortex XDR, Microsoft Defender XDR, Microsoft Sentinel, and Vectra AI (NDR)</strong>.</li>
+        <li>Operated and fine-tuned a multi-vendor security stack including <strong>CrowdStrike Falcon, SentinelOne, Palo Alto Cortex XDR, Microsoft Defender XDR, and Vectra AI (NDR)</strong>.</li>
         <li>Built and maintained automated response playbooks in <strong>Cortex XSOAR</strong> and performed continuous EDR/NDR rule tuning to reduce alert fatigue across customer fleets.</li>
       </ul>
       <div class="exp-skills">
@@ -126,7 +126,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
       </div>
       <ul class="exp-details">
         <li>Assisted in enterprise IT infrastructure, Active Directory user/group administration, and system security operations.</li>
-        <li>Supported Linux server hardening, M365/Exchange administration, and L1/L2 helpdesk troubleshooting.</li>
+        <li>Supported Linux server hardening, M365/Exchange administration, and helpdesk troubleshooting.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Active Directory</span>
@@ -175,7 +175,7 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
     <div class="skills-content">
       <h3>Detection Engineering & SecOps</h3>
       <ul class="skills-list">
-        <li><strong>SIEM & SOAR Platforms:</strong> Splunk (SPL), Cortex XSOAR (Playbook Design), Elastic Stack, Microsoft Sentinel, and Wazuh with Sigma rules.</li>
+        <li><strong>SIEM & SOAR Platforms:</strong> Splunk (SPL), Cortex XSOAR (Playbook Design), Elastic Stack and Wazuh with Sigma rules.</li>
         <li><strong>EDR, XDR & NDR Stack:</strong> SentinelOne, CrowdStrike Falcon, Cortex XDR, Microsoft Defender XDR, Vectra AI (NDR), and Kaspersky Next.</li>
         <li><strong>Detection-as-Code & Tuning:</strong> Custom correlation rule engineering, false-positive reduction, and automated triage workflows.</li>
         <li><strong>Threat Hunting & DFIR:</strong> Hypothesis-driven threat hunting mapped to MITRE ATT&CK, root-cause analysis, and digital forensics.</li>
@@ -228,17 +228,6 @@ I am currently in the thesis phase of my **M.Sc. in Software Engineering** at Ka
     </div>
   </div>
 </div>
-
----
-
-## Achievements & Research
-
-- **IEEE HPEC 2026 Conference Publication:** *"Latency, Quantization, and Energy Analysis of Graph Neural Networks on Edge NPUs"* ([GitHub](https://github.com/ytalharabaci/intel-npu-gnn-benchmarking) · [ORCID](https://orcid.org/0009-0001-9185-4356)).
-- **Agentic AI Security (MCP):** Threat taxonomy and IEEE-format research paper analyzing prompt injection and tool poisoning in the Model Context Protocol ecosystem ([GitHub](https://github.com/ytalharabaci/mcp-agentic-ai-security)).
-- **Elastic GenAI SecOps:** Detection Engineering lab featuring 30 custom detection rules, NATS stream correlation, and LLM-assisted alert triage ([GitHub](https://github.com/ytalharabaci/elastic-genai-secops)).
-- **Vantage SecOps Hub:** Go-based SecOps automation platform integrating ProjectDiscovery tools, L3 reverse tunnels, and phishing simulations ([GitHub](https://github.com/ytalharabaci/vantage)).
-- **Open-Source Web Books:** Authored two comprehensive Turkish technical books: [*Cyber Security Operations*](https://ytalharabaci.github.io/siber-guvenlik-operasyonlari/) and [*Network Management & Security*](https://ytalharabaci.github.io/ag-yonetimi-ve-guvenligi/).
-- **Technical Writing & CTFs:** Published 30+ bilingual deep-dive articles ([Blog](/en/blog/)) and hands-on SIEM/EDR/DFIR lab walkthroughs on [TryHackMe](https://tryhackme.com/p/ytalharabaci) and [LetsDefend](https://app.letsdefend.io/user/ytalharabaci) ([Write-ups](/en/writeups/)).
 
 ---
 

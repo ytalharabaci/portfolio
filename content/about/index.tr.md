@@ -8,7 +8,7 @@ weight: 2
 
 Merhaba, ben Yusuf Talha. Bilgisayar mühendisliği temeline sahip, kurumsal güvenlik operasyonları ile dayanıklı sistem mühendisliğini bir araya getiren bir **Güvenlik Mühendisiyim (Security Engineer)**.
 
-Deneyimim, 60'tan fazla kurumsal müşteriye hizmet veren merkezi MDR ve kritik bankacılık altyapılarını savunan CSIRT operasyonlarını kapsıyor. Güvenliğe yalnızca gelen alarmları reaktif karşılayan bir gözle değil, bir yazılım mühendisi refleksiyle yaklaşıyorum. Tespit süreçlerini otomatikleştiriyor, bulut ve konteyner altyapılarını (Kubernetes ve Docker) sıkılaştırıyor, Go ve Python ile ihtiyaca özel güvenlik araçları geliştiriyorum.
+Deneyimim, 60'tan fazla kurumsal müşteriye hizmet veren merkezi MDR ve kritik altyapıları savunan CSIRT operasyonlarını kapsıyor. Güvenliğe yalnızca gelen alarmları reaktif karşılayan bir gözle değil, bir yazılım mühendisi refleksiyle yaklaşıyorum. Tespit süreçlerini otomatikleştiriyor, bulut ve konteyner altyapılarını (Kubernetes ve Docker) sıkılaştırıyor, Go ve Python ile ihtiyaca özel güvenlik araçları geliştiriyorum.
 
 Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında ders dönemini tamamladım, tez çalışmalarımı sürdürüyorum.
 
@@ -71,7 +71,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Splunk SIEM</span>
-        <span class="skill-tag">Bankacılık CSIRT</span>
+        <span class="skill-tag">CSIRT</span>
         <span class="skill-tag">Kural Optimizasyonu (Tuning)</span>
         <span class="skill-tag">SOAR Playbook Tasarımı</span>
         <span class="skill-tag">Threat Hunting</span>
@@ -96,7 +96,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
       </div>
       <ul class="exp-details">
         <li><strong>60'tan fazla kurumsal müşteriye</strong> 7/24 Yönetilen Tespit ve Müdahale (MDR) hizmeti vererek siber saldırıların gerçek zamanlı triyajını, derinlemesine analizini ve yayılım engellemesini (containment) gerçekleştirdim.</li>
-        <li><strong>CrowdStrike Falcon, SentinelOne, Cortex XDR, Defender XDR, Microsoft Sentinel ve Vectra AI (NDR)</strong> dahil olmak üzere çok üreticili güvenlik yığınını aktif olarak yönettim ve optimize ettim.</li>
+        <li><strong>CrowdStrike Falcon, SentinelOne, Cortex XDR, Defender XDR ve Vectra AI (NDR)</strong> dahil olmak üzere çok üreticili güvenlik yığınını aktif olarak yönettim ve optimize ettim.</li>
         <li><strong>Cortex XSOAR</strong> üzerinde otomatik müdahale iş akışları (playbook) geliştirdim ve alarm yorgunluğunu azaltmak için müşteri altyapılarında sürekli EDR ve NDR kural optimizasyonu yürüttüm.</li>
       </ul>
       <div class="exp-skills">
@@ -175,7 +175,7 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
     <div class="skills-content">
       <h3>Detection Engineering & SecOps</h3>
       <ul class="skills-list">
-        <li><strong>SIEM & SOAR Platformları:</strong> Splunk (SPL), Cortex XSOAR (Playbook Tasarımı), Elastic Stack, Microsoft Sentinel ve Wazuh ile Sigma kuralları.</li>
+        <li><strong>SIEM & SOAR Platformları:</strong> Splunk (SPL), Cortex XSOAR (Playbook Tasarımı), Elastic Stack ve Wazuh ile Sigma kuralları.</li>
         <li><strong>EDR, XDR & NDR Yığını:</strong> SentinelOne, CrowdStrike Falcon, Cortex XDR, Microsoft Defender XDR, Vectra AI (NDR) ve Kaspersky Next.</li>
         <li><strong>Detection-as-Code & Tuning:</strong> Özel korelasyon kuralı geliştirme, yanlış alarm (false-positive) azaltma ve otomatik triyaj iş akışları.</li>
         <li><strong>Threat Hunting & DFIR:</strong> MITRE ATT&CK tabanlı proaktif tehdit avcılığı, kök neden analizi ve dijital adli bilişim.</li>
@@ -228,17 +228,6 @@ Karabük Üniversitesi **Yazılım Mühendisliği Yüksek Lisans** programında 
     </div>
   </div>
 </div>
-
----
-
-## Başarımlar ve Araştırmalar
-
-- **IEEE HPEC 2026 Konferans Yayını:** *"Latency, Quantization, and Energy Analysis of Graph Neural Networks on Edge NPUs"* ([GitHub](https://github.com/ytalharabaci/intel-npu-gnn-benchmarking) · [ORCID](https://orcid.org/0009-0001-9185-4356)).
-- **Ajan Güvenliği Araştırması (MCP):** Model Context Protocol ekosistemindeki prompt injection ve tool poisoning risklerini ele alan tehdit taksonomisi ve IEEE formatında araştırma makalesi ([GitHub](https://github.com/ytalharabaci/mcp-agentic-ai-security)).
-- **Elastic GenAI SecOps:** 30 özel tespit kuralı, NATS stream korelasyonu ve LLM destekli alarm triyajı içeren Detection Engineering laboratuvarı ([GitHub](https://github.com/ytalharabaci/elastic-genai-secops)).
-- **Vantage SecOps Hub:** ProjectDiscovery araçlarını, L3 ters tünelleri ve oltalama simülasyonlarını orkestre eden Go tabanlı SecOps otomasyon platformu ([GitHub](https://github.com/ytalharabaci/vantage)).
-- **Açık Kaynak Web Kitapları:** Açık kaynak olarak hazırladığım iki kapsamlı Türkçe rehber: [*Siber Güvenlik Operasyonları*](https://ytalharabaci.github.io/siber-guvenlik-operasyonlari/) ve [*Ağ Yönetimi ve Güvenliği*](https://ytalharabaci.github.io/ag-yonetimi-ve-guvenligi/).
-- **Teknik Makaleler & CTF Çözümleri:** Tespit mühendisliği ve DevSecOps üzerine 30+ iki dilli teknik yazı ([Blog](/tr/blog/)) ile [TryHackMe](https://tryhackme.com/p/ytalharabaci) ve [LetsDefend](https://app.letsdefend.io/user/ytalharabaci) platformlarındaki SIEM/EDR/DFIR çözümleri ([Write-up'lar](/tr/writeups/)).
 
 ---
 
