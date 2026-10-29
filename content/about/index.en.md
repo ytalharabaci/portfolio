@@ -61,7 +61,7 @@ My background covers the full lifecycle of enterprise cyber defense—from real-
           <span class="exp-location"><i class="fa-solid fa-location-dot"></i> Remote</span>
         </div>
       </div>
-      <p class="exp-intro" style="font-size: 0.9em; margin-bottom: 0.5rem; color: var(--text-muted, #64748b);">Dedicated full-time to Garanti BBVA Technologies Cyber Security Incident Response Team (CSIRT), defending high-availability infrastructure.</p>
+      <p class="exp-intro" style="font-size: 0.9em; margin-bottom: 0.5rem; color: var(--text-muted, #64748b);">Dedicated full-time to Garanti BBVA Technologies Cyber Security Incident Response Team (CSIRT)</p>
       <ul class="exp-details">
         <li>Monitored and investigated high-volume banking telemetry across centralized <strong>Splunk SIEM</strong> and multi-vendor security controls (EDR, WAF, Firewall, Proxy, Active Directory).</li>
         <li>Engineered and fine-tuned <strong>Splunk correlation rules</strong> across diverse log sources to eliminate false positives and increase detection fidelity.</li>

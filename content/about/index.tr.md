@@ -6,7 +6,7 @@ description: "Kurumsal güvenlik operasyonları ve dayanıklı sistem mühendisl
 weight: 2
 ---
 
-Bilgisayar mühendisliği temeline sahip, kurumsal MDR (60+ müşteri), bankacılık CSIRT (Garanti BBVA Teknoloji) ve siber güvenlik danışmanlığı alanlarında 3 yılı aşkın saha deneyimi bulunan bir **Siber Güvenlik Uzmanıyım**.
+Bilgisayar mühendisliği temeline sahip, kurumsal MDR (60+ müşteri), bankacılık CSIRT ve siber güvenlik danışmanlığı alanlarında 3 yılı aşkın saha deneyimi bulunan bir **Siber Güvenlik Uzmanıyım**.
 
 Deneyimim kurumsal siber savunmanın tüm yaşam döngüsünü kapsıyor. Gerçek zamanlı alarm triyajı, derinlemesine log analizi ve olay anında yayılım engellemeden (containment) kurumsal güvenlik platformlarının (SIEM, EDR/XDR, NDR) kurulum ve yönetimine kadar geniş bir alanda görev aldım. Yüksek hacimli SOC/CSIRT operasyonları ile teknik danışmanlık rollerinde bulunarak günlük operasyonları doğrudan mühendislik bakış açısıyla birleştiriyorum. Tespit kurallarını optimize ediyor, zafiyet değerlendirmeleri ve sızma testleri yürütüyor, Linux/Windows ile konteyner altyapılarını sıkılaştırıyor, tekrarlayan iş akışlarını Python ve Go ile otomatikleştiriyorum.
 
