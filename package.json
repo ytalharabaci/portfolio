@@ -20,8 +20,8 @@
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/inter": "^5.2.5",
     "@fortawesome/fontawesome-free": "^7.3.1",
-    "astro": "^7.4.2",
-    "marked": "^18.1.1",
+    "astro": "^7.4.4",
+    "marked": "^18.1.2",
     "mermaid": "^12.2.0",
     "parse5": "^8.0.1",
     "shiki": "^4.5.0",
@@ -29,8 +29,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
-    "@cloudflare/workers-types": "^5.20261023.1",
+    "@cloudflare/workers-types": "^5.20261030.1",
     "typescript": "^6.0.3",
-    "wrangler": "^4.152.0"
+    "wrangler": "^4.156.0"
   }
 }
